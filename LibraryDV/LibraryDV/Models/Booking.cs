@@ -5,52 +5,50 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LibraryDV.Models
+
 {
+    ///Lucas Ingvardtsen
+    /// <summary>
+    /// Represents a base class for bookings with common properties.
+    /// </summary>
     public class Booking
     {
-        ///Forfatter: Lucas Ingvardtsen
         /// <summary>
-        /// TempID - 
+        /// Static variable to keep track of the next ID
         /// </summary>
         static int _tempID = 1;
         /// <summary>
-        /// The users individual ID
+        /// Gets or sets the users ID.
         /// </summary>
         public int UserID { get; set; }
         /// <summary>
-        /// The animals individual ID
+        /// Gets or sets the animals ID.
         /// </summary>
         public required int AnimalID { get; set; }
         /// <summary>
-        /// Date of booking
+        /// Gets or sets the date of booking.
         /// </summary>
         public DateOnly Date { get; set; }
         /// <summary>
-        /// Hour of booking
+        /// Gets or sets the hour of booking
         /// </summary>
         public int Hour { get; set; }
         /// <summary>
-        /// The individual bookings ID
+        /// Gets or sets the booking ID.
         /// </summary>
         public int BookingID { get; set; }
         /// <summary>
-        /// Comments for the booking
+        /// Gets or sets the comment for the booking
         /// </summary>
         public string Comment { get; set; }
 
 
 
 
-
+        ///Lucas Ingvardtsen
         /// <summary>
-        /// Constructors: Lucas Ingvardtsen
+        /// Constructors for bookings
         /// </summary>
-        /// <param name="userID"></param>
-        /// <param name="animalID"></param>
-        /// <param name="date"></dato>
-        /// <param name="hour"></p>
-        /// <param name="bookingID"></param>
-        /// <param name="comment"></param>
         public Booking(int userID, int animalID, DateOnly date, int hour, int bookingID, string comment)
         {
             UserID = userID;
@@ -58,7 +56,7 @@ namespace LibraryDV.Models
             Date = date;
             Hour = hour;
             BookingID = _tempID;
-            _tempID++;
+            _tempID++; //Increment the static ID for each new booking
             Comment = comment;
         }
     }
