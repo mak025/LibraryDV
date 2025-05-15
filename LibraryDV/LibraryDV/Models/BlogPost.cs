@@ -9,7 +9,7 @@ namespace LibraryDV.Models
     public class BlogPost
     {
         /// <summary>
-        /// Title of the blog post, forfatter: Egil
+        /// Forfatter: Egil
         /// </summary>
         public required string Title { get; set; }
         public string ImgPath { get; set; }
