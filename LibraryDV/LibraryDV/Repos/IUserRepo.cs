@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryDV.Repos
 {
-    interface Interface1
+    interface IUserRepo
     {
     }
 }
