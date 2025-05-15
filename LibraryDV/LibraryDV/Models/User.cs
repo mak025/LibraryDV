@@ -44,7 +44,7 @@ namespace LibraryDV.Models
         /// <summary>
         /// Gets or sets the user's ID.
         /// </summary>
-        public required int ID { get; set; }
+        public required int UserID { get; set; }
 
         /// <summary>
         /// Gets or sets the user's phone number.
@@ -73,7 +73,7 @@ namespace LibraryDV.Models
         {
             Type = UserType.Customer;
             Name = name;
-            ID = id;
+            UserID = id;
             PhoneNumber = phoneNumber;
             Email = email;
         }
@@ -101,7 +101,7 @@ namespace LibraryDV.Models
         {
             Type = UserType.Employee;
             Name = name;
-            ID = id;
+            UserID = id;
             PhoneNumber = phoneNumber;
             Email = email;
             this.password = password;
