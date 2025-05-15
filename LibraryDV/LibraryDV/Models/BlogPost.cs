@@ -8,19 +8,27 @@ namespace LibraryDV.Models
 {
     public class BlogPost
     {
+        ///Egil
+
         /// <summary>
-        /// Forfatter: Egil
+        /// title of the blog post
         /// </summary>
         public required string Title { get; set; }
+        /// <summary>
+        /// filepath to the image in the blogpost
+        /// </summary>
         public string ImgPath { get; set; }
+        /// <summary>
+        /// main text in the blogpost
+        /// </summary>
         public required string Text { get; set; }
 
         /// <summary>
-        /// Constructor for BlogPost, forfatter: Egil
+        /// Constructor for BlogPost
         /// </summary>
-        /// <param name="title">overskrift til blogpost</param>
-        /// <param name="imgPath">filsti til billede</param>
-        /// <param name="text">brødtekst</param>
+        /// <param name="title">title for blogpost</param>
+        /// <param name="imgPath">filepath for image in blogpost</param>
+        /// <param name="text">main text</param>
         public BlogPost(string title, string imgPath, string text)
         {
             Title = title;
