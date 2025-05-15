@@ -6,24 +6,23 @@ using System.Threading.Tasks;
 
 namespace LibraryDV.Models
 {
-    public class User
+    public abstract class User
     {
         public required string Name { get; set; }
-        public required string Email { get; set; }
+        public required int ID { get; set; }
         public required string PhoneNumber { get; set; }
-        public required string Address { get; set; }
+        public required string Email { get; set; }
     }
 
     public class Employee : User
     {
-        public required string EmployeeId { get; set; }
-        public required string Department { get; set; }
-        public required DateTime HireDate { get; set; }
-        public required string Position { get; set; }
+        public required string password { get; set; }
+        private bool _isAdmin = false;
+
     }
 
     public class Admin : Employee
     {
-        public required bool IsAdmin { get; set; }
+        private bool _isAdmin = true;
     }
 }
