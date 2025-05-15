@@ -8,11 +8,19 @@ namespace LibraryDV.Models
 {
     public class BlogPost
     {
+        ///Egil
+        
         /// <summary>
-        /// Forfatter: Egil
+        /// overskrift til blogpost
         /// </summary>
         public required string Title { get; set; }
+        /// <summary>
+        /// filsti til billede
+        /// </summary>
         public string ImgPath { get; set; }
+        /// <summary>
+        /// brødtekst
+        /// </summary>
         public required string Text { get; set; }
 
         /// <summary>
