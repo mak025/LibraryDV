@@ -8,15 +8,46 @@ namespace LibraryDV.Models
 {
     internal class Activity
     {
+        /// Marcus
+        /// 
+        /// <summary>
+        /// Static ID number, counts up each time Activity is constructed
+        /// </summary>
         public static int ActID { get; set; } = 1;
+        /// <summary>
+        /// Title of Activity
+        /// </summary>
         public string ActTitle { get; set; }
+        /// <summary>
+        /// Description of Activity
+        /// </summary>
         public string Text { get; set; }
+        /// <summary>
+        /// Contains the path for the image file
+        /// </summary>
         public string ImgPath { get; set; }
+        /// <summary>
+        /// Date of Activity
+        /// </summary>
         public DateOnly ActDate { get; set; }
+        /// <summary>
+        /// Start hour for Activity
+        /// </summary>
         public int StartHour { get; set; }
+        /// <summary>
+        /// End hour of Activity
+        /// </summary>
         public int EndHour { get; set; }
 
-
+        /// <summary>
+        /// Constructor for Activity
+        /// </summary>
+        /// <param name="title">Title of new Activity</param>
+        /// <param name="text">Description of new Activity</param>
+        /// <param name="imgPath">Image Path of new Activity</param>
+        /// <param name="date">Date of new Activity</param>
+        /// <param name="start">Start hour of new Activity</param>
+        /// <param name="end">End hour of new Activity</param>
         public Activity (string title, string text, string imgPath, DateOnly date, int start, int end)
         {
             ActTitle = title;
@@ -27,5 +58,7 @@ namespace LibraryDV.Models
             EndHour = end;
             ActID++;
         }
+
+
     }
 }
