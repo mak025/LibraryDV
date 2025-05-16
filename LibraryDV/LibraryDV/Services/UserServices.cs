@@ -4,57 +4,91 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryDV.Models;
+using LibraryDV.Repos;
+
+namespace LibraryDV.Services
 /// Magnus Hansen
-namespace LibraryDV.Repos
 {
     /// <summary>
-    /// Defines methods for managing users in the repository.
+    /// Provides services for managing users in the library system.
     /// </summary>
-    interface IUserRepo
+    class UserServices
     {
+        private IUserRepo _userInterface;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserServices"/> class.
+        /// </summary>
+        /// <param name="userInterface">The user repository interface.</param>
+        public UserServices(IUserRepo userInterface)
+        {
+            _userInterface = userInterface;
+        }
+
         /// <summary>
         /// Adds a new user to the repository.
         /// </summary>
         /// <param name="user">The user to add.</param>
-        void AddUser(User user);
+        public void AddUser(User user)
+        {
+            _userInterface.AddUser(user);
+        }
 
         /// <summary>
         /// Retrieves a user by their unique identifier.
         /// </summary>
         /// <param name="id">The unique user ID.</param>
         /// <returns>The user with the specified ID, or null if not found.</returns>
-        User GetUserID(int id);
+        public User GetUserID(int id)
+        {
+            return _userInterface.GetUserID(id);
+        }
 
         /// <summary>
         /// Retrieves a user by their type.
         /// </summary>
         /// <param name="type">The type of user (e.g., "Customer", "Employee", "Admin").</param>
         /// <returns>The user with the specified type, or null if not found.</returns>
-        User GetUserType(string type);
+        public User GetUserType(string type)
+        {
+            return _userInterface.GetUserType(type);
+        }
 
         /// <summary>
         /// Retrieves all users from the repository.
         /// </summary>
         /// <returns>An enumerable collection of all users.</returns>
-        IEnumerable<User> GetAllUsers();
+        public IEnumerable<User> GetAllUsers()
+        {
+            return _userInterface.GetAllUsers();
+        }
 
         /// <summary>
         /// Updates the information of an existing user.
         /// </summary>
         /// <param name="user">The user with updated information.</param>
-        void UpdateUser(User user);
+        public void UpdateUser(User user)
+        {
+            _userInterface.UpdateUser(user);
+        }
 
         /// <summary>
         /// Deletes a user from the repository by their unique identifier.
         /// </summary>
         /// <param name="id">The unique user ID.</param>
-        void DeleteUser(int id);
+        public void DeleteUser(int id)
+        {
+            _userInterface.DeleteUser(id);
+        }
 
         /// <summary>
         /// Displays or retrieves detailed information about a user.
         /// </summary>
         /// <param name="id">The unique user ID.</param>
-        void GetUserDetails(int id);
+        public void GetUserDetails(int id)
+        {
+            _userInterface.GetUserDetails(id);
+        }
     }
 }
-/// /Magnus Hansen
+/// Magnus Hansen

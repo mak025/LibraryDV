@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LibraryDV.Models
-    /// Magnus Hansen
+/// Magnus Hansen
 {
     /// <summary>
     /// Represents a user in the library system.
@@ -129,4 +129,4 @@ namespace LibraryDV.Models
         }
     }
 }
-    /// /Magnus Hansen
+/// /Magnus Hansen
