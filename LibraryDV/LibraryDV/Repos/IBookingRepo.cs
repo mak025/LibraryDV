@@ -7,9 +7,8 @@ using LibraryDV.Models;
 
 namespace LibraryDV.Repos
 {
-    interface IBookingRepo
-    {   
-        //find all booking
+    internal interface IBookingRepo
+    {
         public List<Booking> GetAllBookings();
 
         //find a specific booking
@@ -17,7 +16,5 @@ namespace LibraryDV.Repos
 
         //create a new booking object and add it to the list of bookings
         public Booking CreateBooking(Booking booking);
-
-        
     }
 }
