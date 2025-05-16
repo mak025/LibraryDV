@@ -10,10 +10,12 @@ namespace LibraryDV.Models
     {
         /// Marcus
         /// 
+
+        private static int _staticID = 1;
         /// <summary>
         /// Static ID number, counts up each time Activity is constructed
         /// </summary>
-        public static int ActID { get; set; } = 1;
+        public required int ActID { get; set; }
         /// <summary>
         /// Title of Activity
         /// </summary>
@@ -56,9 +58,13 @@ namespace LibraryDV.Models
             ActDate = date;
             StartHour = start;
             EndHour = end;
-            ActID++;
+            ActID = _staticID++;
         }
 
+        public void Edit(Activity activity)
+        {
+
+        }
 
     }
 }
