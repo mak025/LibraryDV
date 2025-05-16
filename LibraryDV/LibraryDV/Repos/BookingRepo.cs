@@ -9,7 +9,7 @@ namespace LibraryDV.Repos
 {
     class BookingRepo
     {
-        //Egil skrevet
+        //Lucas Ingvardtsen
         private List<Booking> _bookings = new List<Booking>();
 
         public BookingRepo() { }
