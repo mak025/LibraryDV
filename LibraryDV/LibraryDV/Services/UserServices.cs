@@ -32,6 +32,18 @@ namespace LibraryDV.Services
         public void AddUser(User user)
         {
             _userInterface.AddUser(user);
+            //checks if user already exists by Email
+            //Checks the list of users in the repository to see if the email already exists
+            if (_userInterface.GetAllUsers().Any(u => u.Email == user.Email))
+            {
+                Console.WriteLine("User already exists.");
+            }
+            else
+            {
+                _userInterface.AddUser(user);
+                Console.WriteLine("User added successfully.");
+            }
+
         }
 
         /// <summary>
