@@ -9,11 +9,15 @@ namespace LibraryDV.Models
     internal class Activity
     {
         /// Marcus
-        /// 
+        
         /// <summary>
-        /// Static ID number, counts up each time Activity is constructed
+        /// A static int that counts up everytime constructor is called, ensuring automated and unique ID value.
         /// </summary>
-        public static int ActID { get; set; } = 1;
+        private static int _staticID = 1;
+        /// <summary>
+        /// ID number, unique too each Activity
+        /// </summary>
+        public required int ActID { get; set; }
         /// <summary>
         /// Title of Activity
         /// </summary>
@@ -56,9 +60,13 @@ namespace LibraryDV.Models
             ActDate = date;
             StartHour = start;
             EndHour = end;
-            ActID++;
+            ActID = _staticID++;
         }
 
+        public void Edit(Activity activity)
+        {
+
+        }
 
     }
 }

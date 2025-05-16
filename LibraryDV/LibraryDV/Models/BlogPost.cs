@@ -10,6 +10,9 @@ namespace LibraryDV.Models
     {
         ///Egil
 
+        private int _staticID = 1;
+
+        public int BlogPostID { get; set; }
         /// <summary>
         /// title of the blog post
         /// </summary>
@@ -34,6 +37,7 @@ namespace LibraryDV.Models
             Title = title;
             ImgPath = imgPath;
             Text = text;
+            BlogPostID = _staticID++;
         }
         
     }

@@ -1,0 +1,74 @@
+﻿using System;
+using System.Collections.Generic;
+using LibraryDV.Repos;
+using LibraryDV.Models;
+
+namespace LibraryDV.Services
+{
+    /// <summary>
+    /// Service class for managing activities.
+    /// </summary>
+    internal class ActivityService
+    {
+        /// <summary>
+        /// Repository interface for activity operations.
+        /// </summary>
+        private IActivityRepo _actInterface;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActivityService"/> class.
+        /// </summary>
+        /// <param name="iActivity">The activity repository interface.</param>
+        public ActivityService(IActivityRepo iActivity)
+        {
+            _actInterface = iActivity;
+        }
+
+        /// <summary>
+        /// Creates a new activity.
+        /// </summary>
+        /// <param name="act">The activity to add.</param>
+        public void Create(Activity act)
+        {
+            _actInterface.CreateActivity(act);
+        }
+
+        /// <summary>
+        /// Edits an existing activity.
+        /// </summary>
+        /// <param name="old">The original activity.</param>
+        /// <param name="newOne">The updated activity details.</param>
+        public void Edit(Activity old, Activity newOne)
+        {
+            _actInterface.EditActivity(old, newOne);
+        }
+
+        /// <summary>
+        /// Deletes an activity.
+        /// </summary>
+        /// <param name="act">The activity to remove.</param>
+        public void Delete(Activity act)
+        {
+            _actInterface.DeleteActivity(act);
+        }
+
+        /// <summary>
+        /// Retrieves an activity by its ID.
+        /// </summary>
+        /// <param name="actID">The ID of the activity.</param>
+        /// <returns>The activity if found; otherwise, null.</returns>
+        public Activity Get(int actID)
+        {
+            return _actInterface.GetActivity(actID);
+        }
+
+        /// <summary>
+        /// Gets all activities.
+        /// </summary>
+        /// <returns>A list of all activities.</returns>
+        public List<Activity> GetAll()
+        {
+            return _actInterface.GetAllActivities();
+        }
+    }
+}
