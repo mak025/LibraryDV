@@ -20,7 +20,7 @@ namespace LibraryDV.Models
         /// <summary>
         /// Gets or sets the unique identifier for the animal.
         /// </summary>
-        public required int ID { get; set; }
+        public required int AnimalID { get; set; }
 
         /// <summary>
         /// Gets or sets the color of the animal.
@@ -77,6 +77,37 @@ namespace LibraryDV.Models
         /// Gets or sets the chip number of the dog.
         /// </summary>
         public required double ChipNumber { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Dog"/> class with parameters.
+        /// </summary>
+        /// <param name="name">The name of the dog.</param>
+        /// <param name="animalID">The unique identifier for the dog.</param>
+        /// <param name="color">The color of the dog.</param>
+        /// <param name="race">The race or breed of the dog.</param>
+        /// <param name="vaccines">The list of vaccines the dog has received.</param>
+        /// <param name="birthday">The birthday of the dog.</param>
+        /// <param name="weight">The weight of the dog.</param>
+        /// <param name="description">The description of the dog.</param>
+        /// <param name="gender">The gender of the dog.</param>
+        /// <param name="imgPath">The image path for the dog.</param>
+        /// <param name="healthLogs">The health logs for the dog.</param>
+        /// <param name="chipNumber">The chip number of the dog.</param>
+        public Dog( string name, int animalID, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath, List<string> healthLogs, double chipNumber)
+        {
+            Name = name;
+            AnimalID = animalID;
+            Color = color;
+            Race = race;
+            Vaccines = vaccines;
+            Birthday = birthday;
+            Weight = weight;
+            Description = description;
+            Gender = gender;
+            ImgPath = imgPath;
+            HealthLogs = healthLogs;
+            ChipNumber = chipNumber;
+        }
     }
 
     /// <summary>
@@ -88,6 +119,49 @@ namespace LibraryDV.Models
         /// Gets or sets the chip number of the cat.
         /// </summary>
         public required double ChipNumber { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Cat"/> class with parameters.
+        /// </summary>
+        /// <param name="name">The name of the cat.</param>
+        /// <param name="animalID">The unique identifier for the cat.</param>
+        /// <param name="color">The color of the cat.</param>
+        /// <param name="race">The race or breed of the cat.</param>
+        /// <param name="vaccines">The list of vaccines the cat has received.</param>
+        /// <param name="birthday">The birthday of the cat.</param>
+        /// <param name="weight">The weight of the cat.</param>
+        /// <param name="description">The description of the cat.</param>
+        /// <param name="gender">The gender of the cat.</param>
+        /// <param name="imgPath">The image path for the cat.</param>
+        /// <param name="healthLogs">The health logs for the cat.</param>
+        /// <param name="chipNumber">The chip number of the cat.</param>
+        public Cat(
+            string name,
+            int animalID,
+            string color,
+            string race,
+            string[] vaccines,
+            DateOnly birthday,
+            double weight,
+            string description,
+            char gender,
+            string imgPath,
+            List<string> healthLogs,
+            double chipNumber)
+        {
+            Name = name;
+            AnimalID = animalID;
+            Color = color;
+            Race = race;
+            Vaccines = vaccines;
+            Birthday = birthday;
+            Weight = weight;
+            Description = description;
+            Gender = gender;
+            ImgPath = imgPath;
+            HealthLogs = healthLogs;
+            ChipNumber = chipNumber;
+        }
     }
 
 }
