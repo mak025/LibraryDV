@@ -9,11 +9,13 @@ namespace LibraryDV.Models
     internal class Activity
     {
         /// Marcus
-        /// 
-
+        
+        /// <summary>
+        /// A static int that counts up everytime constructor is called, ensuring automated and unique ID value.
+        /// </summary>
         private static int _staticID = 1;
         /// <summary>
-        /// Static ID number, counts up each time Activity is constructed
+        /// ID number, unique too each Activity
         /// </summary>
         public required int ActID { get; set; }
         /// <summary>
