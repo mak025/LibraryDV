@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryDV.Models
 {
-    internal class Activity
+    public class Activity
     {
         /// Marcus
         

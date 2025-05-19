@@ -38,7 +38,7 @@ namespace LibraryDV.Services
         /// </summary>
         /// <param name="old">The original activity.</param>
         /// <param name="newOne">The updated activity details.</param>
-        public void Edit(Activity old, Activity newOne)
+        public void EditActivity(Activity old, Activity newOne)
         {
             _actInterface.EditActivity(old, newOne);
         }
@@ -47,7 +47,7 @@ namespace LibraryDV.Services
         /// Deletes an activity.
         /// </summary>
         /// <param name="act">The activity to remove.</param>
-        public void Delete(Activity act)
+        public void DeleteActivity(Activity act)
         {
             _actInterface.DeleteActivity(act);
         }
@@ -57,7 +57,7 @@ namespace LibraryDV.Services
         /// </summary>
         /// <param name="actID">The ID of the activity.</param>
         /// <returns>The activity if found; otherwise, null.</returns>
-        public Activity Get(int actID)
+        public Activity GetActivity(int actID)
         {
             return _actInterface.GetActivity(actID);
         }
@@ -66,7 +66,7 @@ namespace LibraryDV.Services
         /// Gets all activities.
         /// </summary>
         /// <returns>A list of all activities.</returns>
-        public List<Activity> GetAll()
+        public List<Activity> GetAllActivities()
         {
             return _actInterface.GetAllActivities();
         }
