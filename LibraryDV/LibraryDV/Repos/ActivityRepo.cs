@@ -77,5 +77,15 @@ namespace LibraryDV.Repos
         {
             return _activities;
         }
+
+        public override string ToString()
+        {
+            string list = "";
+            foreach (Activity activity in _activities)
+            {
+                list = list + $"Aktivitet ID: {activity.ActID}\nTitel: {activity.ActTitle}\nText: {activity.Text}\nImgPath: {activity.ImgPath}\n\n";
+            }
+            return list;
+        }
     }
 }

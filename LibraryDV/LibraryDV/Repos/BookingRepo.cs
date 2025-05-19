@@ -42,5 +42,15 @@ namespace LibraryDV.Repos
                 _bookings.Remove(booking);
             }
         }
+
+        public override string ToString()
+        {
+            string list = string.Empty;
+            foreach (Booking booking in _bookings)
+            {
+                list += $"Booking ID: {booking.BookingID}\nDyr: {booking.AnimalID}\nUser: {booking.UserID}\nDato: {booking.Date}\n fra kl: {booking.Hour}\nKommentar: {booking.Comment}";
+            }
+            return list;
+        }
     }
 }

@@ -38,6 +38,10 @@ namespace ConsoleAppTest
             }    
             Animal animal2 = animalService.GetAnimal(1);
             Console.WriteLine(animal2.Name);
+
+            
+            Console.WriteLine(activityRepo);
+            
         }
     }
 }
