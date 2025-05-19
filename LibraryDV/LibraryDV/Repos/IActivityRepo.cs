@@ -12,7 +12,7 @@ namespace LibraryDV.Repos
     /// <summary>
     /// Interface for managing activities.
     /// </summary>
-    internal interface IActivityRepo
+    public interface IActivityRepo
     {
         /// <summary>
         /// Creates a new activity.
