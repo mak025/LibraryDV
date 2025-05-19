@@ -8,15 +8,25 @@ using System.Xml.Linq;
 using LibraryDV.Models;
 using System.Diagnostics;
 using System.ComponentModel.Design;
+using System.Text.Json;
 
 namespace LibraryDV.Repos
 {
     public class AnimalRepo : IAnimalRepo
     {
+        //filepath for json file
+        private readonly string _filePath;
+
+        //list of animals
         private List<Animal> _animals = new List<Animal>();
 
         //default constructor
-        public AnimalRepo() { }
+        public AnimalRepo() 
+        {
+            _filePath = "C:\\LibraryDV\\LibraryDV\\LibraryDV\\Json\\Animals.json";
+            //_animals = LoadAnimalsFromJson();
+        }
+        
 
         //find a specific animal by ID
         public Animal GetAnimal(int id)
@@ -41,6 +51,7 @@ namespace LibraryDV.Repos
         public void CreateAnimal(Animal animal)
         {
             _animals.Add(animal);
+            SaveAnimalsToJson();
         }
 
         //find a specific animal by ID and remove it
@@ -50,7 +61,9 @@ namespace LibraryDV.Repos
             if (animalToDelete != null)
             {
                 _animals.Remove(animalToDelete);
+                SaveAnimalsToJson();
             }
+            
         }
 
         //takes all properties as input and updates the animal with the given ID
@@ -93,6 +106,33 @@ namespace LibraryDV.Repos
             string race)
         {
             return _animals;
+        }
+
+        public List<Animal> LoadAnimalsFromJson()
+        {
+            if (!File.Exists(_filePath))
+            {
+                Console.WriteLine("JSON file not found. Returning an empty list.");
+                return new List<Animal>();
+            }
+
+            // Read the JSON file
+            var json = File.ReadAllText(_filePath);
+
+            // Deserialize the JSON into a list of Animal objects
+            var animals = JsonSerializer.Deserialize<List<Animal>>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+            return animals ?? new List<Animal>();
+        }
+
+        private void SaveAnimalsToJson()
+        {
+            // Serialize the list of boats to JSON and write it to the file
+            var json = JsonSerializer.Serialize(_filePath, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(_filePath, json);
         }
     }
 }
