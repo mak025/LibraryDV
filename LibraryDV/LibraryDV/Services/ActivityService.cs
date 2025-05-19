@@ -28,9 +28,9 @@ namespace LibraryDV.Services
         /// Creates a new activity.
         /// </summary>
         /// <param name="act">The activity to add.</param>
-        public void Create(Activity act)
+        public void CreateActivity(string title, string text, string imgPath, DateOnly date, int start, int end)
         {
-            _actInterface.CreateActivity(act);
+            _actInterface.CreateActivity(new Activity(title, text, imgPath, date, start, end));
         }
 
         /// <summary>

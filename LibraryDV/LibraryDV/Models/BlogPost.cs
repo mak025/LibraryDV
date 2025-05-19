@@ -16,7 +16,7 @@ namespace LibraryDV.Models
         /// <summary>
         /// title of the blog post
         /// </summary>
-        public required string Title { get; set; }
+        public string Title { get; set; }
         /// <summary>
         /// filepath to the image in the blogpost
         /// </summary>
@@ -24,7 +24,7 @@ namespace LibraryDV.Models
         /// <summary>
         /// main text in the blogpost
         /// </summary>
-        public required string Text { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
         /// Constructor for BlogPost

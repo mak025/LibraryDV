@@ -11,7 +11,7 @@ using System.ComponentModel.Design;
 
 namespace LibraryDV.Repos
 {
-    class AnimalRepo : IAnimalRepo
+    public class AnimalRepo : IAnimalRepo
     {
         private List<Animal> _animals = new List<Animal>();
 
@@ -23,7 +23,7 @@ namespace LibraryDV.Repos
         {
             foreach (Animal animal in _animals)
             {
-                if (id == animal.ID)
+                if (id == animal.AnimalID)
                 {
                     return animal;
                 }
@@ -46,7 +46,7 @@ namespace LibraryDV.Repos
         //find a specific animal by ID and remove it
         public void DeleteAnimal(int animalID)
         {
-            var animalToDelete = _animals.FirstOrDefault(b => b.ID == animalID);
+            var animalToDelete = _animals.FirstOrDefault(b => b.AnimalID == animalID);
             if (animalToDelete != null)
             {
                 _animals.Remove(animalToDelete);
@@ -67,7 +67,7 @@ namespace LibraryDV.Repos
     string imgPath,
     List<string> healthLogs)
         {
-            var animal = _animals.FirstOrDefault(a => a.ID == id);
+            var animal = _animals.FirstOrDefault(a => a.AnimalID == id);
             // Check if the animal with the given ID exists if it does not, throw an exception, else update the animal
             if (animal == null)
             {

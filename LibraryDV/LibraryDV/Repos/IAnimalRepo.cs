@@ -7,7 +7,7 @@ using LibraryDV.Models;
 
 namespace LibraryDV.Repos
 {
-    interface IAnimalRepo
+    public interface IAnimalRepo
     {
         //find a specific animal by ID
         Animal GetAnimal(int id);

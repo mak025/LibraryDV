@@ -17,7 +17,7 @@ namespace LibraryDV.Models
         /// <summary>
         /// ID number, unique too each Activity
         /// </summary>
-        public required int ActID { get; set; }
+        public int ActID { get; set; }
         /// <summary>
         /// Title of Activity
         /// </summary>
