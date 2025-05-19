@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using LibraryDV.Models;
 
@@ -18,11 +19,15 @@ namespace LibraryDV.Repos
         /// List to store users.
         /// </summary>
         private List<User> users = new List<User>();
+        private readonly string jsonFilePath = Path.Combine("Json", "users.json");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserRepo"/> class.
         /// </summary>
-        public UserRepo() { }
+        public UserRepo()
+        {
+            LoadFromJson();
+        }
 
         /// <summary>
         /// Adds a user to the repository.
@@ -31,6 +36,7 @@ namespace LibraryDV.Repos
         public void AddUser(User user)
         {
             users.Add(user);
+            SaveToJson();
         }
 
         /// <summary>
@@ -43,6 +49,7 @@ namespace LibraryDV.Repos
             if (userToDelete != null)
             {
                 users.Remove(userToDelete);
+                SaveToJson();
             }
         }
 
@@ -109,8 +116,41 @@ namespace LibraryDV.Repos
                 userToUpdate.PhoneNumber = user.PhoneNumber;
                 userToUpdate.Email = user.Email;
                 userToUpdate.Type = user.Type;
+                SaveToJson();
             }
+        }
+
+        public void LoadFromJson()
+        {
+            if (File.Exists(jsonFilePath))
+            {
+                var json = File.ReadAllText(jsonFilePath);
+                var options = new JsonSerializerOptions
+                {
+                    Converters = { new UserJsonConverter() },
+                    PropertyNameCaseInsensitive = true
+                };
+                var loadedUsers = JsonSerializer.Deserialize<List<User>>(json, options);
+                if (loadedUsers != null)
+                {
+                    users = loadedUsers;
+                }
+            }
+        }
+
+        public void SaveToJson()
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                Converters = { new UserJsonConverter() }
+            };
+            var json = JsonSerializer.Serialize(users, options);
+            File.WriteAllText(jsonFilePath, json);
         }
     }
 }
+
+
+
 /// /Magnus Hansen
