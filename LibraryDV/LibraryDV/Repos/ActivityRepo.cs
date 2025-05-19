@@ -12,7 +12,7 @@ namespace LibraryDV.Repos
     /// <summary>
     /// Repository for managing activities.
     /// </summary>
-    internal class ActivityRepo : IActivityRepo
+    public class ActivityRepo : IActivityRepo
     {
         /// <summary>
         /// List of activities.

@@ -8,7 +8,7 @@ namespace LibraryDV.Services
     /// <summary>
     /// Service class for managing activities.
     /// </summary>
-    internal class ActivityService
+    public class ActivityService
     {
         /// <summary>
         /// Repository interface for activity operations.
