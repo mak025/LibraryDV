@@ -27,6 +27,11 @@ namespace LibraryDV.Services
             return _animalRepo.GetAllAnimals();
         }
 
+        public Animal GetAnimal(int id)
+        {
+            return _animalRepo.GetAnimal(id);
+        }
+
         //Null is a placeholder return value
         public Animal EditAnimal()
         {
