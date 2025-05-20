@@ -40,5 +40,7 @@ namespace LibraryDV.Repos
             string name,
             string race
         );
+
+        List<Animal> SortAnimalsByWeight();
     }
 }

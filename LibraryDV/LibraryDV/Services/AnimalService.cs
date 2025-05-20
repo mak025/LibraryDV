@@ -38,5 +38,9 @@ namespace LibraryDV.Services
             return null;
         }
 
+        public List<Animal> SortAnimalByWeigth()
+        {
+            return _animalRepo.SortAnimalsByWeight();
+        }
     }
 }

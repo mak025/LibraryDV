@@ -99,7 +99,7 @@ namespace LibraryDV.Repos
         {
             List<Animal> animalsToSort = GetAllAnimals();
 
-            for (int i = 1;  i < animalsToSort.Count-1; i++)
+            for (int i = 1;  i < animalsToSort.Count; i++)
             {
                 double currentWeight = animalsToSort[i].Weight;
                 int j = i - 1;
