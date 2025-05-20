@@ -1,3 +1,26 @@
-{
-
-}
+[
+  {
+    "Password": "secret",
+    "Type": 2,
+    "Name": "Alice",
+    "UserID": 1,
+    "PhoneNumber": "12345678",
+    "Email": "alice@example.com"
+  },
+  {
+    "Password": "lort",
+    "Type": 1,
+    "Name": "Egil",
+    "UserID": 2,
+    "PhoneNumber": "22434889",
+    "Email": "mail.mail@example.com"
+  },
+  {
+    "Password": "adminpass",
+    "Type": 2,
+    "Name": "AdminUsername",
+    "UserID": 3,
+    "PhoneNumber": "12974320",
+    "Email": "admin@example.com"
+  }
+]

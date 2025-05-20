@@ -28,12 +28,13 @@ namespace ConsoleAppTest
             {
                 Console.WriteLine(animal.Name);
             }
-            var repo = new UserRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json");
-            var userRepo = new UserRepo();
+            //var repo = new UserRepo();
+            var userRepo = new UserRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json\users.json");
             var userService = new UserServices(userRepo);
 
             //Employee employee = new Employee();
             userService.CreateEmployee("Egil", "22434889", "mail.mail@example.com", "lort");
+            userService.CreateAdmin("AdminUsername", "12974320", "admin@example.com", "adminpass");
         }
     }
 }
