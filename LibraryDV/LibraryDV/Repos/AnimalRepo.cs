@@ -94,5 +94,12 @@ namespace LibraryDV.Repos
         {
             return _animals;
         }
+
+        public List<Animal> SortAnimalsByName()
+        {
+            List<Animal> animalsToSort = GetAllAnimals();
+
+
+        }
     }
 }
