@@ -21,6 +21,11 @@ namespace LibraryDV.Repos
         /// List to store users.
         /// </summary>
         private List<User> _users = new List<User>();
+
+
+        /// <summary>
+        /// Path to the JSON file for user data storage.
+        /// </summary>
         private readonly string jsonFilePath;
         public UserRepo(string jsonFilePath)
         {
@@ -28,6 +33,39 @@ namespace LibraryDV.Repos
             LoadFromJson();
         }
 
+        /// <summary>
+        /// Loads user data from a JSON file.
+        /// </summary>
+        public void LoadFromJson()
+        {
+            if (File.Exists(jsonFilePath))
+            {
+                var json = File.ReadAllText(jsonFilePath);
+                var options = new JsonSerializerOptions
+                {
+                    Converters = { new UserJsonConverter() },
+                    PropertyNameCaseInsensitive = true
+                };
+                var loadedUsers = JsonSerializer.Deserialize<List<User>>(json, options);
+                if (loadedUsers != null)
+                {
+                    _users = loadedUsers;
+                }
+            }
+        }
+        /// <summary>
+        /// Saves user data to a JSON file.
+        /// </summary>
+        public void SaveToJson()
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                Converters = { new UserJsonConverter() }
+            };
+            var json = JsonSerializer.Serialize(_users, options);
+            File.WriteAllText(jsonFilePath, json);
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="UserRepo"/> class.
         /// </summary>
@@ -127,35 +165,6 @@ namespace LibraryDV.Repos
                 userToUpdate.Type = user.Type;
                 SaveToJson();
             }
-        }
-
-        public void LoadFromJson()
-        {
-            if (File.Exists(jsonFilePath))
-            {
-                var json = File.ReadAllText(jsonFilePath);
-                var options = new JsonSerializerOptions
-                {
-                    Converters = { new UserJsonConverter() },
-                    PropertyNameCaseInsensitive = true
-                };
-                var loadedUsers = JsonSerializer.Deserialize<List<User>>(json, options);
-                if (loadedUsers != null)
-                {
-                    _users = loadedUsers;
-                }
-            }
-        }
-
-        public void SaveToJson()
-        {
-            var options = new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                Converters = { new UserJsonConverter() }
-            };
-            var json = JsonSerializer.Serialize(_users, options);
-            File.WriteAllText(jsonFilePath, json);
         }
     }
 }

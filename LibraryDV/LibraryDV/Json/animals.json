@@ -1,0 +1,17 @@
+[
+    {
+        "$type": "Dog",
+        "Name": "Buller",
+        "AnimalID": 1,
+        "Color": "grøn",
+        "Race": "labrador",
+        "Vaccines": [ "venlig", "legende" ],
+        "Birthday": "2020-05-19",
+        "Weight": 10.0,
+        "Description": "han er sød",
+        "Gender": "M",
+        "ImgPath": "imgpath",
+        "HealthLogs": [],
+        "ChipNumber": 123456789
+    }
+]
