@@ -22,11 +22,24 @@ namespace LibraryDV.Models
         /// </summary>
         public string Name { get; set; }
 
+        public enum AnimalType
+        {
+            /// <summary>
+            /// Represents a dog.
+            /// </summary>
+            Dog,
+            /// <summary>
+            /// Represents a cat.
+            /// </summary>
+            Cat,
+        }
+
         /// <summary>
         /// Gets or sets the unique identifier for the animal.
         /// </summary>
         public int AnimalID { get; set; }
 
+        public AnimalType Type { get; set; }
         /// <summary>
         /// Gets or sets the color of the animal.
         /// </summary>
@@ -100,6 +113,7 @@ namespace LibraryDV.Models
         public Dog(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath) 
             :base(name, color, race, vaccines, birthday, weight, description, gender, imgPath)
         {
+            Type = AnimalType.Dog; // Set the type to Dog
             // Default constructor
         }
     }
@@ -116,7 +130,9 @@ namespace LibraryDV.Models
 
         public Cat(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
             : base(name, color, race, vaccines, birthday, weight, description, gender, imgPath)
-        { }
+        {
+            Type = AnimalType.Cat; // Set the type to Cat
+        }
     }
 
 }

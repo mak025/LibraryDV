@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.ComponentModel.Design;
 using System.Text.Json;
 using System.IO;
+using LibraryDV.Repos.Converters;
 
 namespace LibraryDV.Repos
 {
@@ -74,10 +75,12 @@ namespace LibraryDV.Repos
         public void CreateDog(Dog animal)
         {
             _animals.Add(animal);
+            SaveToJson();
         }
         public void CreateCat(Cat animal)
         {
             _animals.Add(animal);
+            SaveToJson();
         }
 
         //find a specific animal by ID and remove it
@@ -87,6 +90,7 @@ namespace LibraryDV.Repos
             if (animalToDelete != null)
             {
                 _animals.Remove(animalToDelete);
+                SaveToJson();
             }
         }
 
@@ -121,6 +125,7 @@ namespace LibraryDV.Repos
             animal.Gender = gender;
             animal.ImgPath = imgPath;
             animal.HealthLogs = healthLogs;
+            SaveToJson();
 
             return animal;
         }

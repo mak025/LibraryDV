@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 using static LibraryDV.Models.User;
 using System.Diagnostics;
 
-namespace LibraryDV.Repos
+namespace LibraryDV.Repos.Converters
 {
-    // Rob Latcham - Uk resident
     // This class helps convert User objects to and from JSON format
     public class UserJsonConverter : JsonConverter<User>
     {
@@ -38,7 +37,7 @@ namespace LibraryDV.Repos
                     // If type is Customer, create a Customer object from JSON
                     user = JsonSerializer.Deserialize<Customer>(root.GetRawText(), options);
                 }
-                else if (typeIndicator == 1) // Emplouyee
+                else if (typeIndicator == 1) // Employee
                 {
                     // If type is Employee, create an Employee object from JSON
                     user = JsonSerializer.Deserialize<Employee>(root.GetRawText(), options);

@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using LibraryDV.Models;
 using static LibraryDV.Models.User;
+using LibraryDV.Repos.Converters;
 
 
 namespace LibraryDV.Repos
@@ -40,8 +41,8 @@ namespace LibraryDV.Repos
         {
             if (File.Exists(jsonFilePath))
             {
-                var json = File.ReadAllText(jsonFilePath);
-                var options = new JsonSerializerOptions
+                string json = File.ReadAllText(jsonFilePath);
+                JsonSerializerOptions options = new JsonSerializerOptions
                 {
                     Converters = { new UserJsonConverter() },
                     PropertyNameCaseInsensitive = true
