@@ -4,20 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryDV.Models;
+using static LibraryDV.Models.User;
 /// Magnus Hansen
 namespace LibraryDV.Repos
 {
     /// <summary>
     /// Defines methods for managing users in the repository.
     /// </summary>
-    interface IUserRepo
+    public interface IUserRepo
     {
-        /// <summary>
-        /// Adds a new user to the repository.
-        /// </summary>
-        /// <param name="user">The user to add.</param>
-        void AddUser(User user);
+        void CreateEmployee(Employee employee);
 
+        void CreateAdmin(Admin admin);
         /// <summary>
         /// Retrieves a user by their unique identifier.
         /// </summary>

@@ -12,6 +12,7 @@ namespace LibraryDV.Models
     /// </summary>
     public abstract class User
     {
+        private static int _staticID = 1; // Static ID for unique user identification
         /// <summary>
         /// Specifies the type of user.
         /// </summary>
@@ -39,93 +40,93 @@ namespace LibraryDV.Models
         /// <summary>
         /// Gets or sets the user's name.
         /// </summary>
-        public required string Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the user's ID.
         /// </summary>
-        public required int UserID { get; set; }
+        public int UserID { get; set; }
 
         /// <summary>
         /// Gets or sets the user's phone number.
         /// </summary>
-        public required string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the user's email address.
         /// </summary>
-        public required string Email { get; set; }
-    }
-
-    /// <summary>
-    /// Represents a customer user.
-    /// </summary>
-    public class Customer : User
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Customer"/> class.
-        /// </summary>
-        /// <param name="name">The name of the customer.</param>
-        /// <param name="id">The ID of the customer.</param>
-        /// <param name="phoneNumber">The phone number of the customer.</param>
-        /// <param name="email">The email address of the customer.</param>
-        public Customer(string name, int id, string phoneNumber, string email)
+        public string Email { get; set; }
+        public User(string name, string phoneNumber, string email)
         {
-            Type = UserType.Customer;
+            UserID = _staticID++;
             Name = name;
-            UserID = id;
             PhoneNumber = phoneNumber;
             Email = email;
         }
-    }
-
-    /// <summary>
-    /// Represents an employee user.
-    /// </summary>
-    public class Employee : User
-    {
-        /// <summary>
-        /// Gets or sets the employee's password.
-        /// </summary>
-        public required string password { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Employee"/> class.
+        /// Represents a customer user.
         /// </summary>
-        /// <param name="name">The name of the employee.</param>
-        /// <param name="id">The ID of the employee.</param>
-        /// <param name="phoneNumber">The phone number of the employee.</param>
-        /// <param name="email">The email address of the employee.</param>
-        /// <param name="password">The password of the employee.</param>
-        public Employee(string name, int id, string phoneNumber, string email, string password)
+        public class Customer : User
         {
-            Type = UserType.Employee;
-            Name = name;
-            UserID = id;
-            PhoneNumber = phoneNumber;
-            Email = email;
-            this.password = password;
+            /// <summary>
+            /// Initializes a new instance of the <see cref="Customer"/> class.
+            /// </summary>
+            /// <param name="name">The name of the customer.</param>
+            /// <param name="id">The ID of the customer.</param>
+            /// <param name="phoneNumber">The phone number of the customer.</param>
+            /// <param name="email">The email address of the customer.</param>
+            public Customer(string name, string phoneNumber, string email) : base(name, phoneNumber, email)
+            {
+                Type = UserType.Customer;
+            }
         }
-    }
 
-
-    /// <summary>
-    /// Represents an admin user.
-    /// </summary>
-    public class Admin : Employee
-    {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Admin"/> class.
+        /// Represents an employee user.
         /// </summary>
-        /// <param name="name">The name of the admin.</param>
-        /// <param name="id">The ID of the admin.</param>
-        /// <param name="phoneNumber">The phone number of the admin.</param>
-        /// <param name="email">The email address of the admin.</param>
-        /// <param name="password">The password of the admin.</param>
-        public Admin(string name, int id, string phoneNumber, string email, string password)
-            : base(name, id, phoneNumber, email, password)
+        public class Employee : User
         {
-            Type = UserType.Admin;
+            /// <summary>
+            /// Gets or sets the employee's password.
+            /// </summary>
+            public string Password { get; set; }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="Employee"/> class.
+            /// </summary>
+            /// <param name="name">The name of the employee.</param>
+            /// <param name="id">The ID of the employee.</param>
+            /// <param name="phoneNumber">The phone number of the employee.</param>
+            /// <param name="email">The email address of the employee.</param>
+            /// <param name="password">The password of the employee.</param>
+            public Employee(string name, string phoneNumber, string email, string password) : base(name, phoneNumber, email)
+            {
+                Type = UserType.Employee;
+                this.Password = password;
+            }
+        }
+
+
+        /// <summary>
+        /// Represents an admin user.
+        /// </summary>
+        public class Admin : Employee
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="Admin"/> class.
+            /// </summary>
+            /// <param name="name">The name of the admin.</param>
+            /// <param name="id">The ID of the admin.</param>
+            /// <param name="phoneNumber">The phone number of the admin.</param>
+            /// <param name="email">The email address of the admin.</param>
+            /// <param name="password">The password of the admin.</param>
+            public Admin(string name, string phoneNumber, string email, string password)
+                : base(name, phoneNumber, email, password)
+            {
+                this.Password = password;
+                Type = UserType.Admin;
+            }
         }
     }
 }

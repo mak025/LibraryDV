@@ -5,6 +5,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using LibraryDV.Models;
+using static LibraryDV.Models.User;
+
 
 namespace LibraryDV.Repos
 
@@ -13,29 +15,36 @@ namespace LibraryDV.Repos
     /// <summary>
     /// Repository for managing users in the library system.
     /// </summary>
-    class UserRepo : IUserRepo
+    public class UserRepo : IUserRepo
     {
         /// <summary>
         /// List to store users.
         /// </summary>
-        private List<User> users = new List<User>();
-        private readonly string jsonFilePath = Path.Combine("Json", "users.json");
+        private List<User> _users = new List<User>();
+        private readonly string jsonFilePath;
+        public UserRepo(string jsonFilePath)
+        {
+            this.jsonFilePath = jsonFilePath;
+            LoadFromJson();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserRepo"/> class.
         /// </summary>
-        public UserRepo()
-        {
-            LoadFromJson();
-        }
 
         /// <summary>
         /// Adds a user to the repository.
         /// </summary>
         /// <param name="user">The user to add.</param>
-        public void AddUser(User user)
+        public void CreateAdmin(Admin admin)
         {
-            users.Add(user);
+            _users.Add(admin);
+            SaveToJson();
+        }
+
+        public void CreateEmployee (Employee employee)
+        {
+            _users.Add(employee);
             SaveToJson();
         }
 
@@ -45,10 +54,10 @@ namespace LibraryDV.Repos
         /// <param name="id">The ID of the user to delete.</param>
         public void DeleteUser(int id)
         {
-            var userToDelete = users.FirstOrDefault(u => u.UserID == id);
+            var userToDelete = _users.FirstOrDefault(u => u.UserID == id);
             if (userToDelete != null)
             {
-                users.Remove(userToDelete);
+                _users.Remove(userToDelete);
                 SaveToJson();
             }
         }
@@ -59,7 +68,7 @@ namespace LibraryDV.Repos
         /// <returns>An enumerable collection of users.</returns>
         public IEnumerable<User> GetAllUsers()
         {
-            return users;
+            return _users;
         }
 
         /// <summary>
@@ -69,7 +78,7 @@ namespace LibraryDV.Repos
         /// <returns>The user with the specified ID, or null if not found.</returns>
         public User GetUserID(int id)
         {
-            return users.FirstOrDefault(u => u.UserID == id);
+            return _users.FirstOrDefault(u => u.UserID == id);
         }
 
         /// <summary>
@@ -79,7 +88,7 @@ namespace LibraryDV.Repos
         /// <returns>The first user with the specified type, or null if not found.</returns>
         public User GetUserType(string type)
         {
-            return users.FirstOrDefault(u => u.Type.ToString() == type);
+            return _users.FirstOrDefault(u => u.Type.ToString() == type);
         }
 
         /// <summary>
@@ -88,7 +97,7 @@ namespace LibraryDV.Repos
         /// <param name="id">The ID of the user.</param>
         public void GetUserDetails(int id)
         {
-            var user = users.FirstOrDefault(u => u.UserID == id);
+            var user = _users.FirstOrDefault(u => u.UserID == id);
             if (user != null)
             {
                 Console.WriteLine($"User Details: {user.Name}, {user.PhoneNumber}, {user.Email}");
@@ -102,7 +111,7 @@ namespace LibraryDV.Repos
         public void UpdateUser(User user)
         {
             User userToUpdate = null;
-            foreach (var u in users)
+            foreach (var u in _users)
             {
                 if (u.UserID == user.UserID)
                 {
@@ -133,7 +142,7 @@ namespace LibraryDV.Repos
                 var loadedUsers = JsonSerializer.Deserialize<List<User>>(json, options);
                 if (loadedUsers != null)
                 {
-                    users = loadedUsers;
+                    _users = loadedUsers;
                 }
             }
         }
@@ -145,7 +154,7 @@ namespace LibraryDV.Repos
                 WriteIndented = true,
                 Converters = { new UserJsonConverter() }
             };
-            var json = JsonSerializer.Serialize(users, options);
+            var json = JsonSerializer.Serialize(_users, options);
             File.WriteAllText(jsonFilePath, json);
         }
     }

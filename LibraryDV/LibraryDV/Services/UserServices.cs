@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibraryDV.Models;
 using LibraryDV.Repos;
+using static LibraryDV.Models.User;
 
 namespace LibraryDV.Services
 /// Magnus Hansen
@@ -12,7 +13,7 @@ namespace LibraryDV.Services
     /// <summary>
     /// Provides services for managing users in the library system.
     /// </summary>
-    class UserServices
+    public class UserServices
     {
         private IUserRepo _userInterface;
 
@@ -29,22 +30,17 @@ namespace LibraryDV.Services
         /// Adds a new user to the repository.
         /// </summary>
         /// <param name="user">The user to add.</param>
-        public void AddUser(User user)
+        public void CreateEmployee(string name, string phoneNumber, string email, string password)
         {
-            _userInterface.AddUser(user);
-            //checks if user already exists by Email
-            //Checks the list of users in the repository to see if the email already exists
-            if (_userInterface.GetAllUsers().Any(u => u.Email == user.Email))
-            {
-                Console.WriteLine("User already exists.");
-            }
-            else
-            {
-                _userInterface.AddUser(user);
-                Console.WriteLine("User added successfully.");
-            }
+            _userInterface.CreateEmployee(new Employee (name, phoneNumber, email, password));
 
         }
+        public void CreateAdmin(string name, string phoneNumber, string email, string password)
+        {
+            _userInterface.CreateAdmin(new Admin(name, phoneNumber, email, password));
+
+        }
+
 
         /// <summary>
         /// Retrieves a user by their unique identifier.

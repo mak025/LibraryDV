@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using LibraryDV.Models;
 using LibraryDV.Repos;
 using LibraryDV.Services;
+using static LibraryDV.Models.User;
 
 namespace ConsoleAppTest
 {
@@ -20,16 +21,19 @@ namespace ConsoleAppTest
             var animalRepo = new AnimalRepo();
             var animalService = new AnimalService(animalRepo);
 
-            animalService.CreateAnimal(animal1);
+            animalService.CreateDog("Buller", "grøn", "labrador", new string[] { "venlig", "legende" }, new DateOnly(2020, 5, 19), 10.0, "han er sød", 'M', "imgpath");
 
             // Print all animal names in the _animalRepo list
             foreach (var animal in animalRepo.GetAllAnimals())
             {
                 Console.WriteLine(animal.Name);
             }
+            var repo = new UserRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json");
+            var userRepo = new UserRepo();
+            var userService = new UserServices(userRepo);
 
-            Animal animal2 = animalService.GetAnimal(1);
-            Console.WriteLine(animal2.Name);
+            //Employee employee = new Employee();
+            userService.CreateEmployee("Egil", "22434889", "mail.mail@example.com", "lort");
         }
     }
 }
