@@ -15,9 +15,9 @@ namespace LibraryDV.Repos
         public BookingRepo() { }
 
         //find a specific booking
-        public Booking GetBooking()
+        public Booking GetBooking(int id)
         {
-            return _bookings.FirstOrDefault();
+            return _bookings.FirstOrDefault(b => b.BookingID == id);
         }
 
         //find all bookings

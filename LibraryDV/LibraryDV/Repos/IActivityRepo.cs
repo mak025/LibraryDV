@@ -31,14 +31,14 @@ namespace LibraryDV.Repos
         /// Deletes an activity.
         /// </summary>
         /// <param name="act">The activity to remove.</param>
-        public void DeleteActivity(Activity act);
+        public void DeleteActivity(int activityID);
 
         /// <summary>
         /// Retrieves an activity by its ID.
         /// </summary>
         /// <param name="id">The unique identifier of the activity.</param>
         /// <returns>The activity if found; otherwise, null.</returns>
-        public Activity GetActivity(int id);
+        public Activity GetActivity(int activityID);
 
         /// <summary>
         /// Gets all activities.
