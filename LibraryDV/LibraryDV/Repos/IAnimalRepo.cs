@@ -16,7 +16,9 @@ namespace LibraryDV.Repos
         List<Animal> GetAllAnimals();
 
         //add a new animal object to the list
-        void CreateAnimal(Animal animal);
+        void CreateDog(Dog dog);
+
+        void CreateCat(Cat cat);
 
         //find a specific animal by ID and remove it
         void DeleteAnimal(int animalID);

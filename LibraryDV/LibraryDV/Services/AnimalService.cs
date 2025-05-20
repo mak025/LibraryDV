@@ -17,9 +17,14 @@ namespace LibraryDV.Services
             _animalRepo = animalRepo;
         }
 
-        public void CreateAnimal(Animal animal)
+        public void CreateDog(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
         {
-            _animalRepo.CreateAnimal(animal);
+            _animalRepo.CreateDog(new Dog(name, color, race, vaccines, birthday, weight, description, gender, imgPath));
+        }
+
+        public void CreateCat(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
+        {
+            _animalRepo.CreateCat(new Cat(name, color, race, vaccines, birthday, weight, description, gender, imgPath));
         }
 
         public List<Animal> GetAllAnimals()

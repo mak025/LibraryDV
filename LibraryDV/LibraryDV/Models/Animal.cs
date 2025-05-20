@@ -112,7 +112,7 @@ namespace LibraryDV.Models
         /// <summary>
         /// Gets or sets the chip number of the cat.
         /// </summary>
-        public required double ChipNumber { get; set; }
+        public double ChipNumber { get; set; }
 
         public Cat(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
             : base(name, color, race, vaccines, birthday, weight, description, gender, imgPath)

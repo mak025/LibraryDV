@@ -38,7 +38,11 @@ namespace LibraryDV.Repos
         }
 
         //add a new animal object to the list
-        public void CreateAnimal(Animal animal)
+        public void CreateDog(Dog animal)
+        {
+            _animals.Add(animal);
+        }
+        public void CreateCat(Cat animal)
         {
             _animals.Add(animal);
         }
