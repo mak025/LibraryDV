@@ -49,7 +49,7 @@ namespace LibraryDV.Services
         /// <returns>The user with the specified ID, or null if not found.</returns>
         public User GetUserID(int id)
         {
-            return _userInterface.GetUserID(id);
+            return _userInterface.GetUserByID(id);
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace LibraryDV.Services
         /// <returns>The user with the specified type, or null if not found.</returns>
         public User GetUserType(string type)
         {
-            return _userInterface.GetUserType(type);
+            return _userInterface.GetUserByType(type);
         }
 
         /// <summary>
@@ -74,10 +74,10 @@ namespace LibraryDV.Services
         /// <summary>
         /// Updates the information of an existing user.
         /// </summary>
-        /// <param name="user">The user with updated information.</param>
-        public void UpdateUser(User user)
+        /// <param name="userID">The user with updated information.</param>
+        public void EditUser(int userID, string newName, string newPhoneNumber, string newEmail)
         {
-            _userInterface.UpdateUser(user);
+            _userInterface.EditUser(userID, newName, newPhoneNumber, newEmail);
         }
 
         /// <summary>

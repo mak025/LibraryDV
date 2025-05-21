@@ -21,14 +21,14 @@ namespace LibraryDV.Repos
         /// </summary>
         /// <param name="id">The unique user ID.</param>
         /// <returns>The user with the specified ID, or null if not found.</returns>
-        User GetUserID(int id);
+        User GetUserByID(int id);
 
         /// <summary>
         /// Retrieves a user by their type.
         /// </summary>
         /// <param name="type">The type of user (e.g., "Customer", "Employee", "Admin").</param>
         /// <returns>The user with the specified type, or null if not found.</returns>
-        User GetUserType(string type);
+        User GetUserByType(string type);
 
         /// <summary>
         /// Retrieves all users from the repository.
@@ -39,8 +39,8 @@ namespace LibraryDV.Repos
         /// <summary>
         /// Updates the information of an existing user.
         /// </summary>
-        /// <param name="user">The user with updated information.</param>
-        void UpdateUser(User user);
+        /// <param name="userID">The user with updated information.</param>
+        void EditUser(int userID, string newName, string newPhoneNumber, string newEmail);
 
         /// <summary>
         /// Deletes a user from the repository by their unique identifier.
