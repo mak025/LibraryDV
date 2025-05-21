@@ -54,5 +54,10 @@ namespace LibraryDV.Services
 
         }
 
+        public List<Animal> FilterAnimalsByType(string type)
+        {
+            return _animalInterface.FilterAnimalsByType(type);
+        }
+
     }
 }
