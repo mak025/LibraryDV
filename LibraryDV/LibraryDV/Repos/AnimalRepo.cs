@@ -8,15 +8,49 @@ using System.Xml.Linq;
 using LibraryDV.Models;
 using System.Diagnostics;
 using System.ComponentModel.Design;
+using System.Text.Json;
+using System.IO;
+using LibraryDV.Repos.Converters;
 
 namespace LibraryDV.Repos
 {
     public class AnimalRepo : IAnimalRepo
     {
         private List<Animal> _animals = new List<Animal>();
+        private readonly string jsonFilePath;
+        public AnimalRepo(string jsonFilePath)
+        {
+            this.jsonFilePath = jsonFilePath;
+            LoadFromJson();
+        }
+        public void SaveToJson()
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                Converters = { new AnimalJsonConverter() }
+            };
+            var json = JsonSerializer.Serialize(_animals, options);
+            File.WriteAllText(jsonFilePath, json);
+        }
 
-        //default constructor
-        public AnimalRepo() { }
+        public void LoadFromJson()
+        {
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    Converters = { new AnimalJsonConverter() }, // You need to implement this
+                    PropertyNameCaseInsensitive = true
+                };
+                var loadedAnimals = JsonSerializer.Deserialize<List<Animal>>(json, options);
+                if (loadedAnimals != null)
+                {
+                    _animals = loadedAnimals;
+                }
+            }
+        }
 
         //find a specific animal by ID
         public Animal GetAnimal(int id)
@@ -38,9 +72,15 @@ namespace LibraryDV.Repos
         }
 
         //add a new animal object to the list
-        public void CreateAnimal(Animal animal)
+        public void CreateDog(Dog animal)
         {
             _animals.Add(animal);
+            SaveToJson();
+        }
+        public void CreateCat(Cat animal)
+        {
+            _animals.Add(animal);
+            SaveToJson();
         }
 
         //find a specific animal by ID and remove it
@@ -50,6 +90,7 @@ namespace LibraryDV.Repos
             if (animalToDelete != null)
             {
                 _animals.Remove(animalToDelete);
+                SaveToJson();
             }
         }
 
@@ -84,6 +125,7 @@ namespace LibraryDV.Repos
             animal.Gender = gender;
             animal.ImgPath = imgPath;
             animal.HealthLogs = healthLogs;
+            SaveToJson();
 
             return animal;
         }
