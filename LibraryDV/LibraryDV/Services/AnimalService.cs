@@ -50,7 +50,7 @@ namespace LibraryDV.Services
     string newImgPath,
     List<string> newHealthLogs)
         {
-            _animalInterface.EditAnimal(oldID, newName, newColor, newRace, newVaccines, newBirthday, newWeight, newDescription, newGender, newImgPath, newHealthLogs)
+            _animalInterface.EditAnimal(oldID, newName, newColor, newRace, newVaccines, newBirthday, newWeight, newDescription, newGender, newImgPath, newHealthLogs);
 
         }
 
