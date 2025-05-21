@@ -1,0 +1,35 @@
+[
+    {
+        "ActivityID": 1,
+        "ActivityTitle": "Hundebadetur",
+        "Text": "Vi skal ud og bade for satan",
+        "ImgPath": "imgpath",
+        "StartHour": 8,
+        "EndHour": 12
+    },  
+    {
+        "ActivityID": 2,
+        "ActivityTitle": "Hundebadetur",
+        "Text": "Vi skal ud og bade for satan",
+        "ImgPath": "imgpath",
+        "StartHour": 8,
+        "EndHour": 12
+    },
+    {
+        "ActivityID": 3,
+        "ActivityTitle": "Hundebadetur",
+        "Text": "Vi skal ud og bade for satan",
+        "ImgPath": "imgpath",
+        "StartHour": 8,
+        "EndHour": 12
+    },
+    {
+        "ActivityID": 4,
+        "ActivityTitle": "Hundebadetur",
+        "Text": "Vi skal ud og bade for satan",
+        "ImgPath": "imgpath",
+        "StartHour": 8,
+        "EndHour": 12
+    }
+]
+

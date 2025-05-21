@@ -33,7 +33,7 @@ namespace LibraryDV.Models
         /// <summary>
         /// Date of Activity
         /// </summary>
-        public DateOnly ActivityDate { get; set; }
+        //public DateOnly ActivityDate { get; set; }
         /// <summary>
         /// Start hour for Activity
         /// </summary>
@@ -52,20 +52,14 @@ namespace LibraryDV.Models
         /// <param name="date">Date of new Activity</param>
         /// <param name="start">Start hour of new Activity</param>
         /// <param name="end">End hour of new Activity</param>
-        public Activity (string title, string text, string imgPath, DateOnly date, int start, int end)
+        public Activity (string title, string text, string imgPath, int start, int end)
         {
             ActivityTitle = title;
             Text = text;
             ImgPath = imgPath;
-            ActivityDate = date;
             StartHour = start;
             EndHour = end;
             ActivityID = _staticID++;
-        }
-
-        public void Edit(Activity activity)
-        {
-
         }
 
     }

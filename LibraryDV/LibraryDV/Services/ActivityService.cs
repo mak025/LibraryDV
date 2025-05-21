@@ -28,9 +28,9 @@ namespace LibraryDV.Services
         /// Creates a new activity.
         /// </summary>
         /// <param name="act">The activity to add.</param>
-        public void CreateActivity(string title, string text, string imgPath, DateOnly date, int start, int end)
+        public void CreateActivity(string title, string text, string imgPath, int start, int end)
         {
-            _actInterface.CreateActivity(new Activity(title, text, imgPath, date, start, end));
+            _actInterface.CreateActivity(new Activity(title, text, imgPath, start, end));
         }
 
         /// <summary>
@@ -38,9 +38,9 @@ namespace LibraryDV.Services
         /// </summary>
         /// <param name="old">The original activity.</param>
         /// <param name="newOne">The updated activity details.</param>
-        public void EditActivity(int oldID, string newTitle, string newText, string newImgPath, DateOnly newDate, int newStart, int newEnd)
+        public void EditActivity(int oldID, string newTitle, string newText, string newImgPath, int newStart, int newEnd)
         {
-            _actInterface.EditActivity(oldID, newTitle, newText, newImgPath, newDate, newStart, newEnd);
+            _actInterface.EditActivity(oldID, newTitle, newText, newImgPath, newStart, newEnd);
         }
 
         /// <summary>
