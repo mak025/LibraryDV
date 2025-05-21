@@ -26,6 +26,7 @@ namespace ConsoleAppTest
             ActivityService _actServ = new ActivityService(_actRepo);
 
             _actServ.CreateActivity("Test", "testtest", "nope", 12, 19);
+            _actServ.CreateActivity("TestINIT", "INITA", "VALUE", 2, 5);
 
             Activity act = _actServ.GetActivity(1);
             Console.WriteLine(act.ActivityTitle);

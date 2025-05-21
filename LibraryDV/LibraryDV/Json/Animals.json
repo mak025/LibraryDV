@@ -15,7 +15,10 @@
         "Description": "han er s\u00F8d",
         "Gender": "M",
         "ImgPath": "imgpath",
-        "HealthLogs": []
+        "HealthLogs": {
+            "2024-05-01T10:00:00": "Vaccinated",
+            "2024-05-10T14:30:00": "Checkup"
+        }
     },
     {
         "ChipNumber": 0,
@@ -33,7 +36,10 @@
         "Description": "Dog_DESC",
         "Gender": "M",
         "ImgPath": "path/to/image",
-        "HealthLogs": null
+        "HealthLogs": {
+            "2024-05-01T10:00:00": "Vaccinated",
+            "2024-05-10T14:30:00": "Checkup"
+        }
     },
     {
         "ChipNumber": 0,
@@ -51,7 +57,10 @@
         "Description": "Dog_DESC",
         "Gender": "M",
         "ImgPath": "path/to/image",
-        "HealthLogs": null
+        "HealthLogs": {
+            "2024-05-01T10:00:00": "Vaccinated",
+            "2024-05-10T14:30:00": "Checkup"
+        }
     },
     {
         "ChipNumber": 0,
@@ -69,6 +78,9 @@
         "Description": "Cat_DESC",
         "Gender": "F",
         "ImgPath": "path/to/image",
-        "HealthLogs": null
+        "HealthLogs": {
+            "2024-05-01T10:00:00": "Vaccinated",
+            "2024-05-10T14:30:00": "Checkup"
+        }
     }
 ]
