@@ -10,37 +10,48 @@ namespace LibraryDV.Services
 {
    public class AnimalService
     {
-        private IAnimalRepo _animalRepo;
+        private IAnimalRepo _animalInterface;
 
-        public AnimalService(IAnimalRepo animalRepo)
+        public AnimalService(IAnimalRepo IAnimal)
         {
-            _animalRepo = animalRepo;
+            _animalInterface = IAnimal;
         }
 
         public void CreateDog(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
         {
-            _animalRepo.CreateDog(new Dog(name, color, race, vaccines, birthday, weight, description, gender, imgPath));
+            _animalInterface.CreateDog(new Dog(name, color, race, vaccines, birthday, weight, description, gender, imgPath));
         }
 
         public void CreateCat(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
         {
-            _animalRepo.CreateCat(new Cat(name, color, race, vaccines, birthday, weight, description, gender, imgPath));
+            _animalInterface.CreateCat(new Cat(name, color, race, vaccines, birthday, weight, description, gender, imgPath));
         }
 
         public List<Animal> GetAllAnimals()
         { 
-            return _animalRepo.GetAllAnimals();
+            return _animalInterface.GetAllAnimals();
         }
 
         public Animal GetAnimal(int id)
         {
-            return _animalRepo.GetAnimal(id);
+            return _animalInterface.GetAnimal(id);
         }
 
-        //Null is a placeholder return value
-        public Animal EditAnimal()
+        public void EditAnimal(
+            int oldID,
+    string newName,
+    string newColor,
+    string newRace,
+    string[] newVaccines,
+    DateOnly newBirthday,
+    double newWeight,
+    string newDescription,
+    char newGender,
+    string newImgPath,
+    List<string> newHealthLogs)
         {
-            return null;
+            _animalInterface.EditAnimal(oldID, newName, newColor, newRace, newVaccines, newBirthday, newWeight, newDescription, newGender, newImgPath, newHealthLogs);
+
         }
 
         public List<Animal> FilterAnimalsByType(string type)
