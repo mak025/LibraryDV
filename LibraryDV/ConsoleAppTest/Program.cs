@@ -18,20 +18,23 @@ namespace ConsoleAppTest
             //oprettelse af alle repos/services
             AnimalRepo animalRepo = new AnimalRepo();
             AnimalService animalService = new AnimalService(animalRepo);
+            MarcusTest();
+            //UserRepo userRepo = new UserRepo();
+            //UserServices userService = new UserServices(userRepo);
 
-            UserRepo userRepo = new UserRepo();
-            UserServices userService = new UserServices(userRepo);
+            //ActivityRepo _actRepo = new ActivityRepo();
+            //ActivityService _actServ = new ActivityService(_actRepo);
 
-            ActivityRepo _actRepo = new ActivityRepo();
-            ActivityService _actServ = new ActivityService(_actRepo);
 
-            _actServ.CreateActivity("Test", "testtest", "nope", 12, 19);
 
-            Activity act = _actServ.GetActivity(1);
-            Console.WriteLine(act.ActivityTitle);
 
-            _actServ.EditActivity(1, "Teeeeeeest", "testtest", "nope", 12, 19);
-            Console.WriteLine(act.ActivityTitle);
+            //_actServ.CreateActivity("Test", "testtest", "nope", 12, 19);
+
+            //Activity act = _actServ.GetActivity(1);
+            //Console.WriteLine(act.ActivityTitle);
+
+            //_actServ.EditActivity(1, "Teeeeeeest", "testtest", "nope", 12, 19);
+            //Console.WriteLine(act.ActivityTitle);
 
 
             ////BlogPost blogPost = new BlogPost("Test Title", "Test Content", "text");
@@ -59,6 +62,28 @@ namespace ConsoleAppTest
             //    {
             //    Console.WriteLine(animal.Name);
             //}
+        }
+
+        public static void MarcusTest()
+        {
+            AnimalRepo animalRepo = new AnimalRepo();
+            AnimalService animalService = new AnimalService(animalRepo);
+            List<Animal> animals = animalService.GetAllAnimals();
+
+            animalService.AddToHealthLog(1, "Buller har været til tandlæge");
+
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine(animal.Name);
+                Dictionary<DateTime, string> data = animalService.GetHealthLog(animal.AnimalID);
+                if(data != null)
+                {
+                    foreach (KeyValuePair<DateTime, string> info in data)
+                    {
+                        Console.WriteLine(info.ToString());
+                    }
+                }
+            }
         }
     }
 }
