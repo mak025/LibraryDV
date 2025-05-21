@@ -12,7 +12,7 @@ namespace LibraryDV.Repos
     /// <summary>
     /// Repository for managing activities.
     /// </summary>
-    internal class ActivityRepo : IActivityRepo
+    public class ActivityRepo : IActivityRepo
     {
         /// <summary>
         /// List of activities.
@@ -33,14 +33,15 @@ namespace LibraryDV.Repos
         /// </summary>
         /// <param name="old">The existing activity.</param>
         /// <param name="newOne">The updated activity details.</param>
-        public void EditActivity(Activity old, Activity newOne)
+        public void EditActivity(int oldID, string newTitle, string newText, string newImgPath, DateOnly newDate, int newStart, int newEnd)
         {
-            old.ActivityTitle = newOne.ActivityTitle;
-            old.Text = newOne.Text;
-            old.ImgPath = newOne.ImgPath;
-            old.ActivityDate = newOne.ActivityDate;
-            old.StartHour = newOne.StartHour;
-            old.EndHour = newOne.EndHour;
+            Activity old = GetActivity(oldID);
+            old.ActivityTitle = newTitle;
+            old.Text = newText;
+            old.ImgPath = newImgPath;
+            old.ActivityDate = newDate;
+            old.StartHour = newStart;
+            old.EndHour = newEnd;
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace LibraryDV.Repos
         /// <param name="activityID">The activity to remove.</param>
         public void DeleteActivity(int activityID)
         {
-            _activities.Remove(_activities.FirstOrDefault(b => b.ActivityID == activityID);
+            _activities.Remove(_activities.FirstOrDefault(b => b.ActivityID == activityID));
         }
 
         /// <summary>
