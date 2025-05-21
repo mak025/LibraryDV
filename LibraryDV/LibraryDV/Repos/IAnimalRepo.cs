@@ -38,9 +38,6 @@ namespace LibraryDV.Repos
     List<string> healthLogs);
 
         //takes 2 inputs that describe the animal and returns a list of animals that match the inputs
-        List<Animal> FilterAnimals(
-            string name,
-            string race
-        );
+        List<Animal> FilterAnimalsByType(string type);
     }
 }

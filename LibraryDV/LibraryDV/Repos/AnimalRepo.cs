@@ -130,11 +130,19 @@ namespace LibraryDV.Repos
             return animal;
         }
 
-        public List<Animal> FilterAnimals(
-            string name,
-            string race)
+        public List<Animal> FilterAnimalsByType(string type)
         {
-            return _animals;
+            List<Animal> _filteredAnimals = new List<Animal>();
+
+            foreach (Animal animal in _animals)
+            {
+                if(type.Equals(animal.Type))
+                {
+                    _filteredAnimals.Add(animal);
+                }
+            }
+
+            return _filteredAnimals;
         }
     }
 }
