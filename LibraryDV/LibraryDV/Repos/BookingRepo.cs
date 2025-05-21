@@ -26,14 +26,13 @@ namespace LibraryDV.Repos
             return _bookings;
         }
 
-        //add a new booking object to the list
-        public void CreateBooking(Booking booking)
+        public void AddBooking(Booking booking)
         {
             _bookings.Add(booking);
         }
 
         //delete an existing booking
-        public void Delete(int bookingId)
+        public void DeleteBooking(int bookingId)
         {
             var BookingToDelete = _bookings.FirstOrDefault(b => b.BookingID == bookingId);
             if (BookingToDelete != null)
