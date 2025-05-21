@@ -16,7 +16,7 @@ namespace LibraryDV.Models
         /// <summary>
         /// Static variable to keep track of the next ID
         /// </summary>
-        static int _tempID = 1;
+        static int _staticID = 1;
         /// <summary>
         /// Gets or sets the users ID.
         /// </summary>
@@ -55,8 +55,7 @@ namespace LibraryDV.Models
             AnimalID = animalID;
             Date = date;
             Hour = hour;
-            BookingID = _tempID;
-            _tempID++; //Increment the static ID for each new booking
+            BookingID = _staticID++; //Increment the static ID for each new booking
             Comment = comment;
         }
     }
