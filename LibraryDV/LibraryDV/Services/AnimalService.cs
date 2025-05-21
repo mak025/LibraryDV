@@ -59,9 +59,9 @@ namespace LibraryDV.Services
             return _animalInterface.FilterAnimalsByType(type);
         }
 
-        public List<Animal> SortAnimalByWeigth()
+        public List<Animal> SortAnimalsByWeight(double weight)
         {
-            return _animalInterface.SortAnimalsByWeight();
+            return _animalInterface.SortAnimalsByWeight(weight);
         }
     }
 }
