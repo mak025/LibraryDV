@@ -24,18 +24,18 @@ namespace LibraryDV.Repos
         void DeleteAnimal(int animalID);
 
         //takes a specific animal object and returns it again after edits have been made
-        Animal EditAnimal(
-            int id,
-    string name,
-    string color,
-    string race,
-    string[] vaccines,
-    DateOnly birthday,
-    double weight,
-    string description,
-    char gender,
-    string imgPath,
-    List<string> healthLogs);
+        void EditAnimal(
+            int oldID,
+    string newName,
+    string newColor,
+    string newRace,
+    string[] newVaccines,
+    DateOnly newBirthday,
+    double newWeight,
+    string newDescription,
+    char newGender,
+    string newImgPath,
+    List<string> newHealthLogs);
 
         //takes 2 inputs that describe the animal and returns a list of animals that match the inputs
         List<Animal> FilterAnimals(

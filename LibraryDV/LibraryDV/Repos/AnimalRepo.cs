@@ -93,42 +93,35 @@ namespace LibraryDV.Repos
                 SaveToJson();
             }
         }
-
+        
         //takes all properties as input and updates the animal with the given ID
-        public Animal EditAnimal(
-            int id,
-    string name,
-    string color,
-    string race,
-    string[] vaccines,
-    DateOnly birthday,
-    double weight,
-    string description,
-    char gender,
-    string imgPath,
-    List<string> healthLogs)
+        public void EditAnimal(
+            int oldID,
+    string newName,
+    string newColor,
+    string newRace,
+    string[] newVaccines,
+    DateOnly newBirthday,
+    double newWeight,
+    string newDescription,
+    char newGender,
+    string newImgPath,
+    List<string> newHealthLogs)
         {
-            var animal = _animals.FirstOrDefault(a => a.AnimalID == id);
-            // Check if the animal with the given ID exists if it does not, throw an exception, else update the animal
-            if (animal == null)
-            {
-                throw new InvalidOperationException($"Animal with ID {id} not found.");
-            }
-            
-            animal.Name = name;
-            animal.Color = color;
-            animal.Race = race;
-            animal.Vaccines = vaccines;
-            animal.Birthday = birthday;
-            animal.Weight = weight;
-            animal.Description = description;
-            animal.Gender = gender;
-            animal.ImgPath = imgPath;
-            animal.HealthLogs = healthLogs;
-            SaveToJson();
-
-            return animal;
+            Animal old = GetAnimal(oldID);
+            old.Name = newName;
+            old.Color = newColor;
+            old.Race = newRace;
+            old.Vaccines = newVaccines;
+            old.Birthday = newBirthday;
+            old.Weight = newWeight;
+            old.Description = newDescription;
+            old.Gender = newGender;
+            old.ImgPath = newImgPath;
+            old.HealthLogs = newHealthLogs;
         }
+        
+            
 
         public List<Animal> FilterAnimals(
             string name,
