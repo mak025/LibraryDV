@@ -105,8 +105,8 @@ namespace LibraryDV.Repos
     double newWeight,
     string newDescription,
     char newGender,
-    string newImgPath,
-    List<string> newHealthLogs)
+    string newImgPath
+    /*List<string> newHealthLogs*/)
         {
             Animal old = GetAnimal(oldID);
             old.Name = newName;
@@ -118,10 +118,20 @@ namespace LibraryDV.Repos
             old.Description = newDescription;
             old.Gender = newGender;
             old.ImgPath = newImgPath;
-            old.HealthLogs = newHealthLogs;
+            //old.HealthLogs = newHealthLogs;
         }
         
-            
+        public void AddToHealthLog(int animalID, string toAdd)
+        {
+            Animal animal = GetAnimal(animalID);
+            animal.HealthLogs.Add(DateTime.Now, toAdd);
+        }
+
+        public Dictionary<DateTime, string> GetHealthLog(int animalID)
+        {
+            Animal animal = GetAnimal(animalID);
+            return animal.HealthLogs;
+        }
 
         public List<Animal> FilterAnimalsByType(string type)
         {
