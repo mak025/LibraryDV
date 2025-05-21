@@ -61,6 +61,11 @@ namespace LibraryDV.Models
             EndHour = end;
             ActivityID = _staticID++;
         }
+        public Activity()
+        {
+            // Parameterless constructor needed for deserialization
+        }
+
 
     }
 }
