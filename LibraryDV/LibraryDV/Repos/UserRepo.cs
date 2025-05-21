@@ -115,7 +115,7 @@ namespace LibraryDV.Repos
         /// </summary>
         /// <param name="id">The ID of the user.</param>
         /// <returns>The user with the specified ID, or null if not found.</returns>
-        public User GetUserID(int id)
+        public User GetUserByID(int id)
         {
             return _users.FirstOrDefault(u => u.UserID == id);
         }
@@ -125,7 +125,7 @@ namespace LibraryDV.Repos
         /// </summary>
         /// <param name="type">The type of the user as a string.</param>
         /// <returns>The first user with the specified type, or null if not found.</returns>
-        public User GetUserType(string type)
+        public User GetUserByType(string type)
         {
             return _users.FirstOrDefault(u => u.Type.ToString() == type);
         }
@@ -146,24 +146,18 @@ namespace LibraryDV.Repos
         /// <summary>
         /// Updates the information of a user in the repository.
         /// </summary>
-        /// <param name="user">The user with updated information.</param>
-        public void UpdateUser(User user)
+        /// <param name="userID">The user with updated information.</param>
+        public void EditUser(int userID, string newName, string newPhoneNumber, string newEmail)
         {
-            User userToUpdate = null;
-            foreach (var u in _users)
-            {
-                if (u.UserID == user.UserID)
-                {
-                    userToUpdate = u;
-                    break;
-                }
-            }
+
+            User userToUpdate = GetUserByID(userID);
+            
             if (userToUpdate != null)
             {
-                userToUpdate.Name = user.Name;
-                userToUpdate.PhoneNumber = user.PhoneNumber;
-                userToUpdate.Email = user.Email;
-                userToUpdate.Type = user.Type;
+                userToUpdate.Name = newName;
+                userToUpdate.PhoneNumber = newPhoneNumber;
+                userToUpdate.Email = newEmail;
+                //userToUpdate.Type = newType;
                 SaveToJson();
             }
         }

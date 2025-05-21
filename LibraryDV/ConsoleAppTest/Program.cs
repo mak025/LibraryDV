@@ -24,7 +24,7 @@ namespace ConsoleAppTest
             Console.WriteLine(act.ActivityTitle);
 
             _actServ.EditActivity(1, "Teeeeeeest", "testtest", "nope", new DateOnly(2025, 12, 12), 12, 19);
-                            Console.WriteLine(act.ActivityTitle);
+            Console.WriteLine(act.ActivityTitle);
 
 
             //BlogPost blogPost = new BlogPost("Test Title", "Test Content", "text");
