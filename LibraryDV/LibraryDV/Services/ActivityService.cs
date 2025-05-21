@@ -47,19 +47,19 @@ namespace LibraryDV.Services
         /// Deletes an activity.
         /// </summary>
         /// <param name="act">The activity to remove.</param>
-        public void DeleteActivity(Activity act)
+        public void DeleteActivity(int activityID)
         {
-            _actInterface.DeleteActivity(act);
+            _actInterface.DeleteActivity(activityID);
         }
 
         /// <summary>
         /// Retrieves an activity by its ID.
         /// </summary>
-        /// <param name="actID">The ID of the activity.</param>
+        /// <param name="activityID">The ID of the activity.</param>
         /// <returns>The activity if found; otherwise, null.</returns>
-        public Activity GetActivity(int actID)
+        public Activity GetActivity(int activityID)
         {
-            return _actInterface.GetActivity(actID);
+            return _actInterface.GetActivity(activityID);
         }
 
         /// <summary>

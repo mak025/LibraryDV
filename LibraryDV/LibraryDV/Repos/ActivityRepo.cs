@@ -35,10 +35,10 @@ namespace LibraryDV.Repos
         /// <param name="newOne">The updated activity details.</param>
         public void EditActivity(Activity old, Activity newOne)
         {
-            old.ActTitle = newOne.ActTitle;
+            old.ActivityTitle = newOne.ActivityTitle;
             old.Text = newOne.Text;
             old.ImgPath = newOne.ImgPath;
-            old.ActDate = newOne.ActDate;
+            old.ActivityDate = newOne.ActivityDate;
             old.StartHour = newOne.StartHour;
             old.EndHour = newOne.EndHour;
         }
@@ -46,10 +46,10 @@ namespace LibraryDV.Repos
         /// <summary>
         /// Deletes an activity from the list.
         /// </summary>
-        /// <param name="act">The activity to remove.</param>
-        public void DeleteActivity(Activity act)
+        /// <param name="activityID">The activity to remove.</param>
+        public void DeleteActivity(int activityID)
         {
-            _activities.Remove(act);
+            _activities.Remove(_activities.FirstOrDefault(b => b.ActivityID == activityID);
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace LibraryDV.Repos
         {
             foreach (Activity activity in _activities)
             {
-                if (activity.ActID == actID)
+                if (activity.ActivityID == actID)
                 {
                     return activity;
                 }
