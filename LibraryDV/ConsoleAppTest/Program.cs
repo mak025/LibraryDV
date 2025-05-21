@@ -15,28 +15,40 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-            BlogPost blogPost = new BlogPost("Test Title", "Test Content", "text");
-            DateOnly newDate = new DateOnly(2025, 5, 19);
+            ActivityRepo _actRepo = new ActivityRepo();
+            ActivityService _actServ = new ActivityService(_actRepo);
 
-            var animalRepo = new AnimalRepo(@"C:\Users\mkh09\VSCodeProjects\Projects\Examensprojekt\LibraryDV\LibraryDV\LibraryDV\Json\animals.json");
-            var animalService = new AnimalService(animalRepo);
+            _actServ.CreateActivity("Test", "testtest", "nope", new DateOnly(2025, 12, 12), 12, 19);
 
-            animalService.CreateDog("Fiddo", "sort", "labrador", ["vaccine1", "vaccine2"], newDate, 32, "Dog_DESC", 'M', "path/to/image");
+            Activity act = _actServ.GetActivity(1);
+            Console.WriteLine(act.ActivityTitle);
 
-            // Print all animal names in the _animalRepo list
-            // Print all animal names in the animals.json file using AnimalRepo
-            foreach (var animal in animalRepo.GetAllAnimals())
-            {
-                Console.WriteLine(animal.Name);
-            }
-            //var repo = new UserRepo();
-            var userRepo = new UserRepo(@"C:\Users\mkh09\VSCodeProjects\Projects\Examensprojekt\LibraryDV\LibraryDV\LibraryDV\Json\users.json");
-            var userService = new UserServices(userRepo);
+            _actServ.EditActivity(1, "Teeeeeeest", "testtest", "nope", new DateOnly(2025, 12, 12), 12, 19);
+                            Console.WriteLine(act.ActivityTitle);
 
-            //Employee employee = new Employee();
-            userService.CreateEmployee("Egil", "22434889", "mail.mail@example.com", "lort");
-            userService.CreateAdmin("AdminUsername", "12974320", "admin@example.com", "adminpass");
-            userService.CreateAdmin("AdminUser2", "49865489", "admin2@example.com", "AdminPass12");
+
+            //BlogPost blogPost = new BlogPost("Test Title", "Test Content", "text");
+            //DateOnly newDate = new DateOnly(2025, 5, 19);
+
+            //var animalRepo = new AnimalRepo(@"C:\Users\mkh09\VSCodeProjects\Projects\Examensprojekt\LibraryDV\LibraryDV\LibraryDV\Json\animals.json");
+            //var animalService = new AnimalService(animalRepo);
+
+            //animalService.CreateDog("Fiddo", "sort", "labrador", ["vaccine1", "vaccine2"], newDate, 32, "Dog_DESC", 'M', "path/to/image");
+
+            //// Print all animal names in the _animalRepo list
+            //// Print all animal names in the animals.json file using AnimalRepo
+            //foreach (var animal in animalRepo.GetAllAnimals())
+            //{
+            //    Console.WriteLine(animal.Name);
+            //}
+            ////var repo = new UserRepo();
+            //var userRepo = new UserRepo(@"C:\Users\mkh09\VSCodeProjects\Projects\Examensprojekt\LibraryDV\LibraryDV\LibraryDV\Json\users.json");
+            //var userService = new UserServices(userRepo);
+
+            ////Employee employee = new Employee();
+            //userService.CreateEmployee("Egil", "22434889", "mail.mail@example.com", "lort");
+            //userService.CreateAdmin("AdminUsername", "12974320", "admin@example.com", "adminpass");
+            //userService.CreateAdmin("AdminUser2", "49865489", "admin2@example.com", "AdminPass12");
         }
     }
 }

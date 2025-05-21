@@ -8,7 +8,7 @@ namespace LibraryDV.Services
     /// <summary>
     /// Service class for managing activities.
     /// </summary>
-    internal class ActivityService
+    public class ActivityService
     {
         /// <summary>
         /// Repository interface for activity operations.
@@ -38,9 +38,9 @@ namespace LibraryDV.Services
         /// </summary>
         /// <param name="old">The original activity.</param>
         /// <param name="newOne">The updated activity details.</param>
-        public void EditActivity(Activity old, Activity newOne)
+        public void EditActivity(int oldID, string newTitle, string newText, string newImgPath, DateOnly newDate, int newStart, int newEnd)
         {
-            _actInterface.EditActivity(old, newOne);
+            _actInterface.EditActivity(oldID, newTitle, newText, newImgPath, newDate, newStart, newEnd);
         }
 
         /// <summary>
