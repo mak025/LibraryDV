@@ -148,7 +148,7 @@ namespace LibraryDV.Repos
             return _filteredAnimals;
         }
 
-        public List<Animal> SortAnimalsByWeight(double weight)
+        public List<Animal> SortAnimalsByWeight()
         {
             List<Animal> animalsToSort = GetAllAnimals();
 

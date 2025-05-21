@@ -15,7 +15,7 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-            AnimalRepo _animalRepo = new AnimalRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json\animals.json");
+            AnimalRepo _animalRepo = new AnimalRepo();
             AnimalService _animalServ = new AnimalService(_animalRepo);
             List<Animal> _animals = _animalServ.GetAllAnimals();
             int i = 1;
@@ -29,13 +29,6 @@ namespace ConsoleAppTest
                 Console.WriteLine(_animalServ.GetHealthLog(animal.AnimalID));
             }
             //var repo = new UserRepo();
-            var userRepo = new UserRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json\users.json");
-            var userService = new UserServices(userRepo);
-
-            //Employee employee = new Employee();
-            userService.CreateEmployee("Egil", "22434889", "mail.mail@example.com", "lort");
-            userService.CreateAdmin("AdminUsername", "12974320", "admin@example.com", "adminpass");
-            userService.CreateAdmin("AdminUser2", "49865489", "admin2@example.com", "AdminPass12");
         }
     }
 }
