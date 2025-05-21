@@ -78,5 +78,149 @@
     "UserID": 10,
     "PhoneNumber": "49865489",
     "Email": "admin2@example.com"
+  },
+  {
+    "Password": "lort",
+    "Type": 1,
+    "Name": "Egil",
+    "UserID": 11,
+    "PhoneNumber": "22434889",
+    "Email": "mail.mail@example.com"
+  },
+  {
+    "Password": "adminpass",
+    "Type": 2,
+    "Name": "AdminUsername",
+    "UserID": 12,
+    "PhoneNumber": "12974320",
+    "Email": "admin@example.com"
+  },
+  {
+    "Password": "AdminPass12",
+    "Type": 2,
+    "Name": "AdminUser2",
+    "UserID": 13,
+    "PhoneNumber": "49865489",
+    "Email": "admin2@example.com"
+  },
+  {
+    "Password": "lort",
+    "Type": 1,
+    "Name": "Egil",
+    "UserID": 14,
+    "PhoneNumber": "22434889",
+    "Email": "mail.mail@example.com"
+  },
+  {
+    "Password": "adminpass",
+    "Type": 2,
+    "Name": "AdminUsername",
+    "UserID": 15,
+    "PhoneNumber": "12974320",
+    "Email": "admin@example.com"
+  },
+  {
+    "Password": "AdminPass12",
+    "Type": 2,
+    "Name": "AdminUser2",
+    "UserID": 16,
+    "PhoneNumber": "49865489",
+    "Email": "admin2@example.com"
+  },
+  {
+    "Password": "lort",
+    "Type": 1,
+    "Name": "Egil",
+    "UserID": 17,
+    "PhoneNumber": "22434889",
+    "Email": "mail.mail@example.com"
+  },
+  {
+    "Password": "adminpass",
+    "Type": 2,
+    "Name": "AdminUsername",
+    "UserID": 18,
+    "PhoneNumber": "12974320",
+    "Email": "admin@example.com"
+  },
+  {
+    "Password": "AdminPass12",
+    "Type": 2,
+    "Name": "AdminUser2",
+    "UserID": 19,
+    "PhoneNumber": "49865489",
+    "Email": "admin2@example.com"
+  },
+  {
+    "Password": "lort",
+    "Type": 1,
+    "Name": "Egil",
+    "UserID": 20,
+    "PhoneNumber": "22434889",
+    "Email": "mail.mail@example.com"
+  },
+  {
+    "Password": "adminpass",
+    "Type": 2,
+    "Name": "AdminUsername",
+    "UserID": 21,
+    "PhoneNumber": "12974320",
+    "Email": "admin@example.com"
+  },
+  {
+    "Password": "AdminPass12",
+    "Type": 2,
+    "Name": "AdminUser2",
+    "UserID": 22,
+    "PhoneNumber": "49865489",
+    "Email": "admin2@example.com"
+  },
+  {
+    "Password": "lort",
+    "Type": 1,
+    "Name": "Egil",
+    "UserID": 23,
+    "PhoneNumber": "22434889",
+    "Email": "mail.mail@example.com"
+  },
+  {
+    "Password": "adminpass",
+    "Type": 2,
+    "Name": "AdminUsername",
+    "UserID": 24,
+    "PhoneNumber": "12974320",
+    "Email": "admin@example.com"
+  },
+  {
+    "Password": "AdminPass12",
+    "Type": 2,
+    "Name": "AdminUser2",
+    "UserID": 25,
+    "PhoneNumber": "49865489",
+    "Email": "admin2@example.com"
+  },
+  {
+    "Password": "lort",
+    "Type": 1,
+    "Name": "Egil",
+    "UserID": 26,
+    "PhoneNumber": "22434889",
+    "Email": "mail.mail@example.com"
+  },
+  {
+    "Password": "adminpass",
+    "Type": 2,
+    "Name": "AdminUsername",
+    "UserID": 27,
+    "PhoneNumber": "12974320",
+    "Email": "admin@example.com"
+  },
+  {
+    "Password": "AdminPass12",
+    "Type": 2,
+    "Name": "AdminUser2",
+    "UserID": 28,
+    "PhoneNumber": "49865489",
+    "Email": "admin2@example.com"
   }
 ]

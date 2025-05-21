@@ -30,7 +30,7 @@ namespace ConsoleAppTest
             //BlogPost blogPost = new BlogPost("Test Title", "Test Content", "text");
             DateOnly newDate = new DateOnly(2025, 5, 19);
 
-            var animalRepo = new AnimalRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json\animals.json");
+            var animalRepo = new AnimalRepo();
             var animalService = new AnimalService(animalRepo);
 
             animalService.CreateDog("Fiddo", "sort", "labrador", ["vaccine1", "vaccine2"], newDate, 32, "Dog_DESC", 'M', "path/to/image");
@@ -42,13 +42,19 @@ namespace ConsoleAppTest
                 Console.WriteLine(animal.Name);
             }
             //var repo = new UserRepo();
-            var userRepo = new UserRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json\users.json");
+            var userRepo = new UserRepo();
             var userService = new UserServices(userRepo);
 
             //Employee employee = new Employee();
             userService.CreateEmployee("Egil", "22434889", "mail.mail@example.com", "lort");
             userService.CreateAdmin("AdminUsername", "12974320", "admin@example.com", "adminpass");
             userService.CreateAdmin("AdminUser2", "49865489", "admin2@example.com", "AdminPass12");
+
+            List<Animal> animalList = animalService.GetAllAnimals();
+            foreach (var animal in animalList)
+                {
+                Console.WriteLine(animal.Name);
+            }
         }
     }
 }

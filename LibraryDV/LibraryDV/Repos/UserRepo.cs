@@ -23,14 +23,13 @@ namespace LibraryDV.Repos
         /// </summary>
         private List<User> _users = new List<User>();
 
-
         /// <summary>
         /// Path to the JSON file for user data storage.
         /// </summary>
-        private readonly string jsonFilePath;
-        public UserRepo(string jsonFilePath)
+        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\users.json";
+
+        public UserRepo()
         {
-            this.jsonFilePath = jsonFilePath;
             LoadFromJson();
         }
 

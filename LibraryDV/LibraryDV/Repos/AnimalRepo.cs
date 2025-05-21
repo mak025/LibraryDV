@@ -17,10 +17,10 @@ namespace LibraryDV.Repos
     public class AnimalRepo : IAnimalRepo
     {
         private List<Animal> _animals = new List<Animal>();
-        private readonly string jsonFilePath;
-        public AnimalRepo(string jsonFilePath)
-        {
-            this.jsonFilePath = jsonFilePath;
+        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\animals.json";
+
+        public AnimalRepo()
+        {   
             LoadFromJson();
         }
         public void SaveToJson()
