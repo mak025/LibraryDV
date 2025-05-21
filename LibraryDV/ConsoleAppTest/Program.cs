@@ -15,40 +15,21 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-            ActivityRepo _actRepo = new ActivityRepo();
-            ActivityService _actServ = new ActivityService(_actRepo);
+            AnimalRepo _animalRepo = new AnimalRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json\animals.json");
+            AnimalService _animalServ = new AnimalService(_animalRepo);
+            List<Animal> _animals = _animalServ.GetAllAnimals();
+            int i = 1;
 
-            _actServ.CreateActivity("Test", "testtest", "nope", new DateOnly(2025, 12, 12), 12, 19);
-
-            Activity act = _actServ.GetActivity(1);
-            Console.WriteLine(act.ActivityTitle);
-
-            _actServ.EditActivity(1, "Teeeeeeest", "testtest", "nope", new DateOnly(2025, 12, 12), 12, 19);
-            Console.WriteLine(act.ActivityTitle);
-
-
-            //BlogPost blogPost = new BlogPost("Test Title", "Test Content", "text");
-            DateOnly newDate = new DateOnly(2025, 5, 19);
-
-            var animalRepo = new AnimalRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json\animals.json");
-            var animalService = new AnimalService(animalRepo);
-
-            animalService.CreateDog("Fiddo", "sort", "labrador", ["vaccine1", "vaccine2"], newDate, 32, "Dog_DESC", 'M', "path/to/image");
-
-            //// Print all animal names in the _animalRepo list
-            //// Print all animal names in the animals.json file using AnimalRepo
-            foreach (var animal in animalRepo.GetAllAnimals())
+            foreach(Animal animal in _animals)
             {
-                Console.WriteLine(animal.Name);
+                string toAdd = $"testestestest12 {i}";
+                _animalServ.AddToHealthLog(animal.AnimalID, toAdd);
+                i++;
+                //Dictionary<DateTime, string> hLog = new Dictionary<DateTime, string>();  
+                Console.WriteLine(_animalServ.GetHealthLog(animal.AnimalID));
             }
-            //var repo = new UserRepo();
-            var userRepo = new UserRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json\users.json");
-            var userService = new UserServices(userRepo);
 
-            //Employee employee = new Employee();
-            userService.CreateEmployee("Egil", "22434889", "mail.mail@example.com", "lort");
-            userService.CreateAdmin("AdminUsername", "12974320", "admin@example.com", "adminpass");
-            userService.CreateAdmin("AdminUser2", "49865489", "admin2@example.com", "AdminPass12");
+            
         }
     }
 }

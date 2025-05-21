@@ -36,11 +36,13 @@ namespace LibraryDV.Repos
     char newGender,
     string newImgPath);
 
+        void AddToHealthLog(int animalID, string toAdd);
+
         Dictionary<DateTime, string> GetHealthLog(int animalID);
 
         //takes 2 inputs that describe the animal and returns a list of animals that match the inputs
         List<Animal> FilterAnimalsByType(string type);
 
-        List<Animal> SortAnimalsByWeight(double weight);
+        List<Animal> SortAnimalsByWeight();
     }
 }

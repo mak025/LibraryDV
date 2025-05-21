@@ -53,6 +53,11 @@ namespace LibraryDV.Services
 
         }
 
+        public void AddToHealthLog(int animalID, string toAdd)
+        {
+            _animalInterface.AddToHealthLog(animalID, toAdd);
+        }
+
         public Dictionary<DateTime, string> GetHealthLog(int animalID)
         {
             return _animalInterface.GetHealthLog(animalID);
@@ -64,9 +69,9 @@ namespace LibraryDV.Services
         }
 
 
-        public List<Animal> SortAnimalsByWeight(double weight)
+        public List<Animal> SortAnimalsByWeight()
         {
-            return _animalInterface.SortAnimalsByWeight(weight);
+            return _animalInterface.SortAnimalsByWeight();
         }
     }
 }
