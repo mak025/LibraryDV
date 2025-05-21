@@ -1,86 +1,91 @@
 [
-    {
-        "ChipNumber": 123456789,
-        "Name": "Buller",
-        "AnimalID": 1,
-        "Type": 0,
-        "Color": "gr\u00F8n",
-        "Race": "labrador",
-        "Vaccines": [
-            "venlig",
-            "legende"
-        ],
-        "Birthday": "2020-05-19",
-        "Weight": 10,
-        "Description": "han er s\u00F8d",
-        "Gender": "M",
-        "ImgPath": "imgpath",
-        "HealthLogs": {
-            "2024-05-01T10:00:00": "Vaccinated",
-            "2024-05-10T14:30:00": "Checkup"
-        }
-    },
-    {
-        "ChipNumber": 0,
-        "Name": "Fiddo",
-        "AnimalID": 2,
-        "Type": 0,
-        "Color": "sort",
-        "Race": "labrador",
-        "Vaccines": [
-            "vaccine1",
-            "vaccine2"
-        ],
-        "Birthday": "2025-05-19",
-        "Weight": 32,
-        "Description": "Dog_DESC",
-        "Gender": "M",
-        "ImgPath": "path/to/image",
-        "HealthLogs": {
-            "2024-05-01T10:00:00": "Vaccinated",
-            "2024-05-10T14:30:00": "Checkup"
-        }
-    },
-    {
-        "ChipNumber": 0,
-        "Name": "Fiddo",
-        "AnimalID": 3,
-        "Type": 0,
-        "Color": "sort",
-        "Race": "labrador",
-        "Vaccines": [
-            "vaccine1",
-            "vaccine2"
-        ],
-        "Birthday": "2025-05-19",
-        "Weight": 32,
-        "Description": "Dog_DESC",
-        "Gender": "M",
-        "ImgPath": "path/to/image",
-        "HealthLogs": {
-            "2024-05-01T10:00:00": "Vaccinated",
-            "2024-05-10T14:30:00": "Checkup"
-        }
-    },
-    {
-        "ChipNumber": 0,
-        "Name": "Misse",
-        "AnimalID": 4,
-        "Type": 1,
-        "Color": "white",
-        "Race": "persian",
-        "Vaccines": [
-            "vaccine1",
-            "vaccine2"
-        ],
-        "Birthday": "2025-05-19",
-        "Weight": 12,
-        "Description": "Cat_DESC",
-        "Gender": "F",
-        "ImgPath": "path/to/image",
-        "HealthLogs": {
-            "2024-05-01T10:00:00": "Vaccinated",
-            "2024-05-10T14:30:00": "Checkup"
-        }
+  {
+    "ChipNumber": 123456789,
+    "Name": "Buller",
+    "AnimalID": 1,
+    "Type": 0,
+    "Color": "gr\u00F8n",
+    "Race": "labrador",
+    "Vaccines": [
+      "venlig",
+      "legende"
+    ],
+    "Birthday": "2020-05-19",
+    "Weight": 10,
+    "Description": "han er s\u00F8d",
+    "Gender": "M",
+    "ImgPath": "imgpath",
+    "HealthLogs": {
+      "2024-05-10T14:30:00": "Updated checkup",
+      "2025-05-21T14:34:30.9757396+02:00": "Initial checkup",
+      "2025-05-21T14:37:53.4951661+02:00": "Initial checkup",
+      "2025-05-21T14:38:06.5531148+02:00": "Initial checkup",
+      "2025-05-21T14:38:25.4526933+02:00": "Initial checkup",
+      "2025-05-21T14:38:41.1280259+02:00": "Initial checkup - pre edit",
+      "2025-05-21T14:39:28.5428681+02:00": "Initial checkup - pre edit"
     }
+  },
+  {
+    "ChipNumber": 0,
+    "Name": "Fiddo",
+    "AnimalID": 2,
+    "Type": 0,
+    "Color": "sort",
+    "Race": "labrador",
+    "Vaccines": [
+      "vaccine1",
+      "vaccine2"
+    ],
+    "Birthday": "2025-05-19",
+    "Weight": 32,
+    "Description": "Dog_DESC",
+    "Gender": "M",
+    "ImgPath": "path/to/image",
+    "HealthLogs": {
+      "2024-05-01T10:00:00": "Vaccinated",
+      "2024-05-10T14:30:00": "Checkup"
+    }
+  },
+  {
+    "ChipNumber": 0,
+    "Name": "Fiddo",
+    "AnimalID": 3,
+    "Type": 0,
+    "Color": "sort",
+    "Race": "labrador",
+    "Vaccines": [
+      "vaccine1",
+      "vaccine2"
+    ],
+    "Birthday": "2025-05-19",
+    "Weight": 32,
+    "Description": "Dog_DESC",
+    "Gender": "M",
+    "ImgPath": "path/to/image",
+    "HealthLogs": {
+      "2024-05-01T10:00:00": "Vaccinated",
+      "2024-05-10T14:30:00": "Checkup"
+    }
+  },
+  {
+    "ChipNumber": 0,
+    "Name": "Misse",
+    "AnimalID": 4,
+    "Type": 1,
+    "Color": "white",
+    "Race": "persian",
+    "Vaccines": [
+      "vaccine1",
+      "vaccine2"
+    ],
+    "Birthday": "2025-05-19",
+    "Weight": 12,
+    "Description": "Cat_DESC",
+    "Gender": "F",
+    "ImgPath": "path/to/image",
+    "HealthLogs": {
+      "2024-05-01T10:00:00": "Vaccinated",
+      "2024-05-10T14:30:00": "Checkup"
+    }
+  }
 ]

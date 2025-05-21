@@ -37,6 +37,9 @@ namespace LibraryDV.Repos
     string newImgPath);
 
         void AddToHealthLog(int animalID, string toAdd);
+        void RemoveHealthLogEntry(int animalID, DateTime logDate);
+        void EditHealthLogEntry(int animalID, DateTime logDate, string newDescription);
+
 
         Dictionary<DateTime, string> GetHealthLog(int animalID);
 

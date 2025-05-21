@@ -125,7 +125,28 @@ namespace LibraryDV.Repos
         {
             Animal animal = GetAnimal(animalID);
             animal.HealthLogs.Add(DateTime.Now, toAdd);
+            SaveToJson();
         }
+        public void RemoveHealthLogEntry(int animalID, DateTime logDate)
+        {
+            Animal animal = GetAnimal(animalID);
+            if (animal != null && animal.HealthLogs.ContainsKey(logDate))
+            {
+                animal.HealthLogs.Remove(logDate);
+                SaveToJson();
+            }
+        }
+
+        public void EditHealthLogEntry(int animalID, DateTime logDate, string newDescription)
+        {
+            Animal animal = GetAnimal(animalID);
+            if (animal != null && animal.HealthLogs.ContainsKey(logDate))
+            {
+                animal.HealthLogs[logDate] = newDescription;
+                SaveToJson();
+            }
+        }
+
 
         public Dictionary<DateTime, string> GetHealthLog(int animalID)
         {

@@ -83,7 +83,8 @@ namespace LibraryDV.Models
         /// <summary>
         /// Gets or sets the health logs for the animal.
         /// </summary>
-        public Dictionary<DateTime, string> HealthLogs { get; set; }
+        public Dictionary<DateTime, string> HealthLogs { get; set; } = new();
+
 
         public Animal(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
         {
