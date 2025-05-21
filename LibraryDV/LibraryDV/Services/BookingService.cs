@@ -16,16 +16,22 @@ namespace LibraryDV.Services
         {
             _bookingInterface = bookRepo ?? throw new ArgumentNullException(nameof(bookRepo));
         }
+        public void CreateBooking(int userID, int animalID, DateOnly date, int hour, string comment)
+        {
+            _bookingInterface.CreateBooking(new Booking(userID, animalID, date, hour, comment));
+        }
+
+        public Booking GetBooking(int id)
+        {
+            return _bookingInterface.GetBooking(id);
+        }
 
         public List<Booking> GetAllBookings()
         {
             return _bookingInterface.GetAllBookings();
         }
 
-        public void CreateBooking(Booking book)
-        {
-            _bookingInterface.CreateBooking(book);
-        }
+
 
         
     }

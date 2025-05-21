@@ -9,12 +9,13 @@ namespace LibraryDV.Repos
 {
     internal interface IBookingRepo
     {
-        public List<Booking> GetAllBookings();
-
-        //find a specific booking
-        public Booking GetBooking();
-
         //create a new booking object and add it to the list of bookings
         public Booking CreateBooking(Booking booking);
+
+        //find a specific booking
+        public Booking GetBooking(int id);
+
+        public List<Booking> GetAllBookings();
+
     }
 }

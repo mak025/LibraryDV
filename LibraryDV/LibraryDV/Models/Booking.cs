@@ -24,7 +24,7 @@ namespace LibraryDV.Models
         /// <summary>
         /// Gets or sets the animals ID.
         /// </summary>
-        public required int AnimalID { get; set; }
+        public int AnimalID { get; set; }
         /// <summary>
         /// Gets or sets the date of booking.
         /// </summary>
@@ -49,7 +49,7 @@ namespace LibraryDV.Models
         /// <summary>
         /// Constructors for bookings
         /// </summary>
-        public Booking(int userID, int animalID, DateOnly date, int hour, int bookingID, string comment)
+        public Booking(int userID, int animalID, DateOnly date, int hour, string comment)
         {
             UserID = userID;
             AnimalID = animalID;

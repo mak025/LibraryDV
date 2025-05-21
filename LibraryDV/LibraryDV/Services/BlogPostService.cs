@@ -29,12 +29,7 @@ namespace LibraryDV.Services
         /// <param name="text">The content of the blog post.</param>
         public void CreateBlogPost(string title, string imgPath, string text)
         {
-            BlogPost blogPost = new BlogPost(title, imgPath, text)
-            {
-                Title = title,
-                Text = text
-            };
-            _blogPostInterface.CreateBlogPost(blogPost);
+            _blogPostInterface.CreateBlogPost(new BlogPost(title, imgPath, text));
         }
 
         /// <summary>

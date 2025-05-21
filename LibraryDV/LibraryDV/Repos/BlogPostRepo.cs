@@ -9,24 +9,24 @@ namespace LibraryDV.Repos
     /// </summary>
     internal class BlogPostRepo : IBlogPostRepo
     {
-        private IBlogPostRepo _blogPostInterface;
+        private List<BlogPost> _blogPosts;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BlogPostRepo"/> class.
         /// </summary>
         /// <param name="blogPostInterface">The blog post repository interface.</param>
-        public BlogPostRepo(IBlogPostRepo blogPostInterface)
+        public BlogPostRepo()
         {
-            _blogPostInterface = blogPostInterface;
+
         }
 
         /// <summary>
         /// Creates a new blog post.
         /// </summary>
         /// <param name="blogpost">The blog post object to be created.</param>
-        public void CreateBlogPost(BlogPost blogpost)
+        public void CreateBlogPost(BlogPost blogPost)
         {
-            _blogPostInterface.CreateBlogPost(blogpost);
+            _blogPosts.Add(blogPost);
         }
 
         /// <summary>
@@ -35,7 +35,8 @@ namespace LibraryDV.Repos
         /// <param name="id">The ID of the blog post to delete.</param>
         public void DeleteBlogPost(int id)
         {
-            _blogPostInterface.DeleteBlogPost(id);
+            var blogPostToDelete = _blogPosts.FirstOrDefault(b => b.BlogPostID == id);
+            _blogPosts.Remove(blogPostToDelete);
         }
 
         /// <summary>
@@ -44,7 +45,7 @@ namespace LibraryDV.Repos
         /// <returns>A list of all blog posts.</returns>
         public List<BlogPost> GetAllBlogPosts()
         {
-            return _blogPostInterface.GetAllBlogPosts();
+            return _blogPosts;
         }
     }
 }
