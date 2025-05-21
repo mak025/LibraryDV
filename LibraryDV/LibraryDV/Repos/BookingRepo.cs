@@ -26,6 +26,7 @@ namespace LibraryDV.Repos
             return _bookings;
         }
 
+        //add a booking to the list
         public void AddBooking(Booking booking)
         {
             _bookings.Add(booking);
