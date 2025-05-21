@@ -27,11 +27,11 @@ namespace LibraryDV.Models
             /// <summary>
             /// Represents a dog.
             /// </summary>
-            Dog,
+            Dog, // Type Identifier for Dog = 0
             /// <summary>
             /// Represents a cat.
             /// </summary>
-            Cat,
+            Cat, // Type Identifier for Cat = 1
         }
 
         /// <summary>
