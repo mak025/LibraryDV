@@ -137,5 +137,24 @@ namespace LibraryDV.Repos
 
             return _filteredAnimals;
         }
+
+        public List<Animal> SortAnimalsByWeight()
+        {
+            List<Animal> animalsToSort = GetAllAnimals();
+
+            for (int i = 1;  i < animalsToSort.Count; i++)
+            {
+                double currentWeight = animalsToSort[i].Weight;
+                int j = i - 1;
+
+                while (j >= 0 && animalsToSort[j].Weight > currentWeight)
+                {
+                    (animalsToSort[j], animalsToSort[j + 1]) = (animalsToSort[j + 1], animalsToSort[j]);
+                    j--;
+                }
+            }
+
+            return animalsToSort;
+        }
     }
 }
