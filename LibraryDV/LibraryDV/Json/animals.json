@@ -1,38 +1,11 @@
-[
-  {
-    "ChipNumber": 123456789,
-    "Name": "Buller",
-    "AnimalID": 1,
-    "Type": 0,
-    "Color": "gr\u00F8n",
+{
+    "Navn": "Buller",
+    "Farve": "grøn",
     "Race": "labrador",
-    "Vaccines": [
-      "venlig",
-      "legende"
-    ],
-    "Birthday": "2020-05-19",
-    "Weight": 10,
-    "Description": "han er s\u00F8d",
-    "Gender": "M",
-    "ImgPath": "imgpath",
-    "HealthLogs": []
-  },
-  {
-    "ChipNumber": 0,
-    "Name": "Fiddo",
-    "AnimalID": 2,
-    "Type": 0,
-    "Color": "sort",
-    "Race": "labrador",
-    "Vaccines": [
-      "vaccine1",
-      "vaccine2"
-    ],
-    "Birthday": "2025-05-19",
-    "Weight": 32,
-    "Description": "Dog_DESC",
-    "Gender": "M",
-    "ImgPath": "path/to/image",
-    "HealthLogs": null
-  }
-]
+    "Egenskaber": [ "venlig", "legende" ],
+    "Fødselsdato": "2020-05-19",
+    "Vægt": 10.0,
+    "Beskrivelse": "han er sød",
+    "Køn": "M",
+    "Billede": "imgpath"
+}

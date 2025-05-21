@@ -61,7 +61,7 @@ namespace LibraryDV.Services
 
         public List<Animal> SortAnimalByWeigth()
         {
-            return _animalRepo.SortAnimalsByWeight();
+            return _animalInterface.SortAnimalsByWeight();
         }
     }
 }
