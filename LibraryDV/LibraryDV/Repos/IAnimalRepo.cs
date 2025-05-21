@@ -34,8 +34,9 @@ namespace LibraryDV.Repos
     double newWeight,
     string newDescription,
     char newGender,
-    string newImgPath,
-    List<string> newHealthLogs);
+    string newImgPath);
+
+        Dictionary<DateTime, string> GetHealthLog(int animalID);
 
         //takes 2 inputs that describe the animal and returns a list of animals that match the inputs
         List<Animal> FilterAnimalsByType(string type);

@@ -47,17 +47,22 @@ namespace LibraryDV.Services
     double newWeight,
     string newDescription,
     char newGender,
-    string newImgPath,
-    List<string> newHealthLogs)
+    string newImgPath)
         {
-            _animalInterface.EditAnimal(oldID, newName, newColor, newRace, newVaccines, newBirthday, newWeight, newDescription, newGender, newImgPath, newHealthLogs);
+            _animalInterface.EditAnimal(oldID, newName, newColor, newRace, newVaccines, newBirthday, newWeight, newDescription, newGender, newImgPath);
 
+        }
+
+        public Dictionary<DateTime, string> GetHealthLog(int animalID)
+        {
+            return _animalInterface.GetHealthLog(animalID);
         }
 
         public List<Animal> FilterAnimalsByType(string type)
         {
             return _animalInterface.FilterAnimalsByType(type);
         }
+
 
         public List<Animal> SortAnimalsByWeight(double weight)
         {
