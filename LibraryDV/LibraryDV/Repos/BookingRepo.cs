@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using LibraryDV.Models;
+using System.Diagnostics;
 
 namespace LibraryDV.Repos
 {
@@ -11,8 +13,28 @@ namespace LibraryDV.Repos
     {
         //Lucas Ingvardtsen
         private List<Booking> _bookings = new List<Booking>();
+        private readonly string _jsonFilePath = @"C:/LibraryDV/LibraryDV/LibraryDV/Json/Bookiings.json";
 
-        public BookingRepo() { }
+        public BookingRepo() 
+        {
+            LoadFromJson();
+        }
+
+        public void LoadFromJson()
+        {
+            if(File.Exists(_jsonFilePath))
+            {
+                Debug.WriteLine("File Exists!");
+                string json = File.ReadAllText(_jsonFilePath);
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var loadedBookings = JsonSerializer.Deserialize<List<Booking>>(json, options);
+                if(loadedBookings != null)
+                {
+                    _bookings = loadedBookings;
+
+                }
+            }
+        }
 
         //find a specific booking
         public Booking GetBooking(int id)
