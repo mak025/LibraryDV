@@ -20,14 +20,13 @@ namespace LibraryDV.Services
 
         public void CreateDog(string chipNumber, string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
         {
-            // Check for duplicates
+            // Check for duplicates. ToList(); is being called to avoid iterating on the same collection while adding to it
             List<Animal> allAnimals = _animalInterface.GetAllAnimals().ToList();
-
-            try {
+            bool duplicateExists = false;
                 foreach (Dog animal in allAnimals)
                 {
-
-                    if (animal.ChipNumber == chipNumber &&
+                duplicateExists = 
+                        animal.ChipNumber == chipNumber &&
                         animal.Name == name &&
                         animal.Color == color &&
                         animal.Race == race &&
@@ -35,15 +34,23 @@ namespace LibraryDV.Services
                         animal.Weight == weight &&
                         animal.Description == description &&
                         animal.Gender == gender &&
-                        animal.ImgPath == imgPath) 
-                    else
-                        Debug.WriteLine("No identical animal found, creating new one");
-                    _animalInterface.CreateDog(new Dog(chipNumber, name, color, race, vaccines, birthday, weight, description, gender, imgPath));
-
+                        animal.ImgPath == imgPath &&
+                        animal is Dog;
+                Debug.WriteLine(duplicateExists);
                 }
+                if (duplicateExists == true)
+            {
+                Debug.WriteLine("Duplicate animal found");
+               
+            } else
+            {
+                Debug.WriteLine("No duplicate animal found");
+                _animalInterface.CreateDog(new Dog(chipNumber, name, color, race, vaccines, birthday, weight, description, gender, imgPath));
             }
-            }
-        
+        }
+
+
+
 
         public void CreateCat(string chipNumber, string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
         {

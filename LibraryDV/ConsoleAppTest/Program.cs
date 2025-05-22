@@ -22,9 +22,11 @@ namespace ConsoleAppTest
 
             //repo.EditAnimal(1, "NEWNAME", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
             //Console.WriteLine(repo.GetAnimal(1).Name);
+            
 
-            animalService.CreateDog("123123", "NEWNAME", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
-            animalService.CreateDog("123123", "NEWNAME", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
+            animalService.CreateDog("123123", "BULLER 2.0", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
+            animalService.CreateDog("123123", "BULLER 2.0", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
+
 
 
             //// Ensure there is at least one animal to test with
