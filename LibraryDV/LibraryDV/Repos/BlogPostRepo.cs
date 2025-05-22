@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using LibraryDV.Models;
 
 namespace LibraryDV.Repos
@@ -7,9 +8,10 @@ namespace LibraryDV.Repos
     /// <summary>
     /// Repository class for managing blog posts.
     /// </summary>
-    internal class BlogPostRepo : IBlogPostRepo
+    public class BlogPostRepo : IBlogPostRepo
     {
-        private List<BlogPost> _blogPosts;
+        private List<BlogPost> _blogPosts = new List<BlogPost>();
+        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\BlogPosts.json";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BlogPostRepo"/> class.
@@ -17,9 +19,35 @@ namespace LibraryDV.Repos
         /// <param name="blogPostInterface">The blog post repository interface.</param>
         public BlogPostRepo()
         {
-
+            LoadFromJson();
         }
 
+        public void SaveToJson()
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+            var json = JsonSerializer.Serialize(_blogPosts, options);
+            File.WriteAllText(jsonFilePath, json);
+        }
+
+        public void LoadFromJson()
+        {
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+                var loadedBlogPosts = JsonSerializer.Deserialize<List<BlogPost>>(json, options);
+                if (loadedBlogPosts != null)
+                {
+                    _blogPosts = loadedBlogPosts;
+                }
+            }
+        }
         /// <summary>
         /// Creates a new blog post.
         /// </summary>
@@ -27,6 +55,7 @@ namespace LibraryDV.Repos
         public void CreateBlogPost(BlogPost blogPost)
         {
             _blogPosts.Add(blogPost);
+            SaveToJson();
         }
 
         /// <summary>
@@ -37,6 +66,7 @@ namespace LibraryDV.Repos
         {
             var blogPostToDelete = _blogPosts.FirstOrDefault(b => b.BlogPostID == id);
             _blogPosts.Remove(blogPostToDelete);
+            SaveToJson();
         }
 
         /// <summary>
