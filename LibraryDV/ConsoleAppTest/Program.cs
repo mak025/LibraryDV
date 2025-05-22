@@ -17,17 +17,15 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-            IAnimalRepo repo = new AnimalRepo();
-            AnimalService animalService = new AnimalService(repo);
 
-            //repo.EditAnimal(1, "NEWNAME", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
-            //Console.WriteLine(repo.GetAnimal(1).Name);
-            
+            // Test creating a BlogPost
+            IBlogPostRepo BlogPostRepo = new BlogPostRepo();
+            BlogPostService blogPostService = new BlogPostService(BlogPostRepo);
 
-            animalService.CreateDog("123123", "BULLER 2.0", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
-            animalService.CreateDog("123123", "BULLER 2.0", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
-
-
+            blogPostService.CreateBlogPost("Test Title", "imgpath", "Test content");
+            Console.WriteLine("Blog post 1 created.");
+            blogPostService.CreateBlogPost("Test Title 2", "imgpath", "Test content 2");
+            Console.WriteLine("Blog post 2 created.");
 
             //// Ensure there is at least one animal to test with
             //Animal animal = repo.GetAnimal(1);

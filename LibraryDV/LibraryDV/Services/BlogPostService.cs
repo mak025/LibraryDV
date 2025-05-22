@@ -8,7 +8,7 @@ namespace LibraryDV.Services
     /// <summary>
     /// Service class for managing blog posts.
     /// </summary>
-    internal class BlogPostService
+    public class BlogPostService
     {
         private IBlogPostRepo _blogPostInterface;
 

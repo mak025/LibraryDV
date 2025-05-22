@@ -7,7 +7,7 @@ namespace LibraryDV.Repos
     /// <summary>
     /// Interface for managing blog posts.
     /// </summary>
-    internal interface IBlogPostRepo
+    public interface IBlogPostRepo
     {
         /// <summary>
         /// Creates a new blog post.
