@@ -9,11 +9,11 @@ using System.Diagnostics;
 
 namespace LibraryDV.Repos
 {
-    class BookingRepo
+    public class BookingRepo : IBookingRepo 
     {
         //Lucas Ingvardtsen
         private List<Booking> _bookings = new List<Booking>();
-        private readonly string _jsonFilePath = @"C:/LibraryDV/LibraryDV/LibraryDV/Json/Bookiings.json";
+        private readonly string _jsonFilePath = @"C:/LibraryDV/LibraryDV/LibraryDV/Json/Bookings.json";
 
         public BookingRepo() 
         {
@@ -36,6 +36,13 @@ namespace LibraryDV.Repos
             }
         }
 
+        public void SaveToJson()
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(_bookings, options);
+            File.WriteAllText(_jsonFilePath, json);
+        }
+
         //find a specific booking
         public Booking GetBooking(int id)
         {
@@ -52,6 +59,7 @@ namespace LibraryDV.Repos
         public void CreateBooking(Booking booking)
         {
             _bookings.Add(booking);
+            SaveToJson();
         }
 
         //delete an existing booking
@@ -62,6 +70,7 @@ namespace LibraryDV.Repos
             {
                 _bookings.Remove(BookingToDelete);
             }
+            SaveToJson();
         }
 
         

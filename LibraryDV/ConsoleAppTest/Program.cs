@@ -17,6 +17,10 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
+            while (true)
+            {
+                Test();
+            }
             IAnimalRepo repo = new AnimalRepo();
             AnimalService animalService = new AnimalService(repo);
 
@@ -96,6 +100,20 @@ namespace ConsoleAppTest
             //}
 
 
+        }
+
+        public static void Test()
+        {
+            IBookingRepo bi = new BookingRepo();
+            BookingService _bs = new BookingService(bi);
+            DateOnly date = DateOnly.FromDateTime(DateTime.Now);
+
+            _bs.CreateBooking(1, 2, date, 14, "Buller 2.0 ftw");
+            _bs.CreateBooking(4, 2, date, 15, "Buller 2.0 ftw");
+            _bs.CreateBooking(3, 2, date, 10, "Buller 2.0 ftw");
+
+            Console.WriteLine("woo pwoop");
+            Console.ReadKey();
         }
     }
 }
