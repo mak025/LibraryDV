@@ -86,6 +86,12 @@ namespace LibraryDV.Repos
             SaveToJson();
         }
 
+        public void CreateCustomer(Customer customer)
+        {
+            _users.Add(customer);
+            SaveToJson();
+        }
+
         /// <summary>
         /// Deletes a user with the specified ID from the repository.
         /// </summary>

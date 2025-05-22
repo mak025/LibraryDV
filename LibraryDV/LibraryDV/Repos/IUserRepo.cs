@@ -21,6 +21,7 @@ namespace LibraryDV.Repos
         /// </summary>
         /// <param name="id">The unique user ID.</param>
         /// <returns>The user with the specified ID, or null if not found.</returns>
+        void CreateCustomer(Customer customer);
         User GetUserByID(int id);
 
         /// <summary>
