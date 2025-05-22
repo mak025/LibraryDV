@@ -1,8 +1,20 @@
 [
-    {
-        "BlogPostID": 1,
-        "Title": "Hundebadetur",
-        "Text": "Vi skal ud og bade for satan",
-        "ImgPath": "imgpath"
-    }
+  {
+    "BlogPostID": 1,
+    "Title": "Hundebadetur",
+    "ImgPath": "imgpath",
+    "Text": "Vi skal ud og bade for satan"
+  },
+  {
+    "BlogPostID": 1,
+    "Title": "Test Title 1",
+    "ImgPath": "ImgPath",
+    "Text": "Test Content"
+  },
+  {
+    "BlogPostID": 1,
+    "Title": "Test Title 2",
+    "ImgPath": "ImgPath",
+    "Text": "Test Content"
+  }
 ]

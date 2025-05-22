@@ -18,17 +18,13 @@ namespace ConsoleAppTest
         static void Main(string[] args)
         {
 
-            IUserRepo userRepo = new UserRepo();
-            UserServices userService = new UserServices(userRepo);
-            //repo.EditAnimal(1, "NEWNAME", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
-            //Console.WriteLine(repo.GetAnimal(1).Name);
+            IBlogPostRepo BlogPostRepo = new BlogPostRepo();
+            BlogPostService blogPostService = new BlogPostService(BlogPostRepo);
 
-
-            animalService.CreateDog("123123", "BULLER 2.0", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
-            animalService.CreateDog("123123", "BULLER 2.0", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
-
-            userService.CreateAdmin("Bob", "19191919", "bobmail@hejsa.dk", "bobskode123");
-            userService.CreateAdmin("Bob", "19191919", "bobmail@hejsa.dk", "bobskode123");
+            blogPostService.CreateBlogPost("Test Title 1", "ImgPath", "Test Content");
+            Console.WriteLine("Test Blogpost Created #1");
+            blogPostService.CreateBlogPost("Test Title 2", "ImgPath", "Test Content");
+            Console.WriteLine("Test Blogpost Created #2");
 
 
             //// Ensure there is at least one animal to test with
