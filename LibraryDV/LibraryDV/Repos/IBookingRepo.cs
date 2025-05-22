@@ -7,10 +7,10 @@ using LibraryDV.Models;
 
 namespace LibraryDV.Repos
 {
-    internal interface IBookingRepo
+    public interface IBookingRepo
     {
         //create a new booking object and add it to the list of bookings
-        public Booking CreateBooking(Booking booking);
+        public void CreateBooking(Booking booking);
 
         //find a specific booking
         public Booking GetBooking(int id);
