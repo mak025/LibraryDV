@@ -119,6 +119,7 @@ namespace LibraryDV.Repos
             old.Gender = newGender;
             old.ImgPath = newImgPath;
             //old.HealthLogs = newHealthLogs;
+            SaveToJson();
         }
         
         public void AddToHealthLog(int animalID, string toAdd)

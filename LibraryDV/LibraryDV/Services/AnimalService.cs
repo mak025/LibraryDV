@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibraryDV.Repos;
 using LibraryDV.Models;
+using System.Diagnostics;
 
 namespace LibraryDV.Services
 {
@@ -17,14 +18,36 @@ namespace LibraryDV.Services
             _animalInterface = IAnimal;
         }
 
-        public void CreateDog(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
+        public void CreateDog(string chipNumber, string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
         {
-            _animalInterface.CreateDog(new Dog(name, color, race, vaccines, birthday, weight, description, gender, imgPath));
-        }
+            // Check for duplicates
+            List<Animal> allAnimals = _animalInterface.GetAllAnimals().ToList();
 
-        public void CreateCat(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
+            try {
+                foreach (Dog animal in allAnimals)
+                {
+
+                    if (animal.ChipNumber == chipNumber &&
+                        animal.Name == name &&
+                        animal.Color == color &&
+                        animal.Race == race &&
+                        animal.Birthday == birthday &&
+                        animal.Weight == weight &&
+                        animal.Description == description &&
+                        animal.Gender == gender &&
+                        animal.ImgPath == imgPath) 
+                    else
+                        Debug.WriteLine("No identical animal found, creating new one");
+                    _animalInterface.CreateDog(new Dog(chipNumber, name, color, race, vaccines, birthday, weight, description, gender, imgPath));
+
+                }
+            }
+            }
+        
+
+        public void CreateCat(string chipNumber, string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
         {
-            _animalInterface.CreateCat(new Cat(name, color, race, vaccines, birthday, weight, description, gender, imgPath));
+            _animalInterface.CreateCat(new Cat(chipNumber, name, color, race, vaccines, birthday, weight, description, gender, imgPath));
         }
 
         public List<Animal> GetAllAnimals()
@@ -50,7 +73,6 @@ namespace LibraryDV.Services
     string newImgPath)
         {
             _animalInterface.EditAnimal(oldID, newName, newColor, newRace, newVaccines, newBirthday, newWeight, newDescription, newGender, newImgPath);
-
         }
 
         public void AddToHealthLog(int animalID, string toAdd)
