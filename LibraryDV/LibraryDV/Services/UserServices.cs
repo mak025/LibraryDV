@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,13 +33,69 @@ namespace LibraryDV.Services
         /// <param name="user">The user to add.</param>
         public void CreateEmployee(string name, string phoneNumber, string email, string password)
         {
-            _userInterface.CreateEmployee(new Employee (name, phoneNumber, email, password));
+            // Check for duplicates. ToList(); is being called to avoid iterating on the same collection while adding to it
+            List<User> allUsers = _userInterface.GetAllUsers().ToList();
 
+            bool duplicateExists = false;
+            foreach (Employee user in allUsers)
+            {
+                duplicateExists =
+                        user.PhoneNumber == phoneNumber || user.Email == email && user is Employee;
+                Debug.WriteLine(duplicateExists);
+            }
+            if (duplicateExists == true)
+            {
+                Debug.WriteLine("Duplicate user found, no new user has been created");
+            }
+            else
+            {
+                Debug.WriteLine("No duplicate user found, creating new user");
+                _userInterface.CreateEmployee(new Employee(name, phoneNumber, email, password));
+            }
         }
         public void CreateAdmin(string name, string phoneNumber, string email, string password)
         {
-            _userInterface.CreateAdmin(new Admin(name, phoneNumber, email, password));
+            // Check for duplicates. ToList(); is being called to avoid iterating on the same collection while adding to it
+            List<User> allUsers = _userInterface.GetAllUsers().ToList();
 
+            bool duplicateExists = false;
+            foreach (Admin user in allUsers)
+            {
+                duplicateExists =
+                        user.PhoneNumber == phoneNumber || user.Email == email && user is Employee;
+                Debug.WriteLine(duplicateExists);
+            }
+            if (duplicateExists == true)
+            {
+                Debug.WriteLine("Duplicate user found, no new user has been created");
+            }
+            else
+            {
+                Debug.WriteLine("No duplicate user found, creating new user");
+                _userInterface.CreateEmployee(new Admin(name, phoneNumber, email, password));
+            }
+        }
+        public void CreateCustomer(string phoneNumber, string email, string password)
+        {
+            // Check for duplicates. ToList(); is being called to avoid iterating on the same collection while adding to it
+            List<User> allUsers = _userInterface.GetAllUsers().ToList();
+
+            bool duplicateExists = false;
+            foreach (Customer user in allUsers)
+            {
+                duplicateExists =
+                        user.PhoneNumber == phoneNumber || user.Email == email && user is Customer;
+                Debug.WriteLine(duplicateExists);
+            }
+            if (duplicateExists == true)
+            {
+                Debug.WriteLine("Duplicate user found, no new user has been created");
+            }
+            else
+            {
+                Debug.WriteLine("No duplicate user found, creating new user");
+                _userInterface.CreateCustomer(new Customer(phoneNumber, email, password));
+            }
         }
 
 

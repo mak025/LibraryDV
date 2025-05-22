@@ -22,6 +22,7 @@ namespace LibraryDV.Services
         {
             // Check for duplicates. ToList(); is being called to avoid iterating on the same collection while adding to it
             List<Animal> allAnimals = _animalInterface.GetAllAnimals().ToList();
+
             bool duplicateExists = false;
                 foreach (Dog animal in allAnimals)
                 {
@@ -49,12 +50,37 @@ namespace LibraryDV.Services
             }
         }
 
-
-
-
         public void CreateCat(string chipNumber, string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
         {
-            _animalInterface.CreateCat(new Cat(chipNumber, name, color, race, vaccines, birthday, weight, description, gender, imgPath));
+            // Check for duplicates. ToList(); is being called to avoid iterating on the same collection while adding to it
+            List<Animal> allAnimals = _animalInterface.GetAllAnimals().ToList();
+
+            bool duplicateExists = false;
+            foreach (Dog animal in allAnimals)
+            {
+                duplicateExists =
+                        animal.ChipNumber == chipNumber &&
+                        animal.Name == name &&
+                        animal.Color == color &&
+                        animal.Race == race &&
+                        animal.Birthday == birthday &&
+                        animal.Weight == weight &&
+                        animal.Description == description &&
+                        animal.Gender == gender &&
+                        animal.ImgPath == imgPath &&
+                        animal is Cat;
+                Debug.WriteLine(duplicateExists);
+            }
+            if (duplicateExists == true)
+            {
+                Debug.WriteLine("Duplicate animal found");
+
+            }
+            else
+            {
+                Debug.WriteLine("No duplicate animal found");
+                _animalInterface.CreateCat(new Cat(chipNumber, name, color, race, vaccines, birthday, weight, description, gender, imgPath));
+            }
         }
 
         public List<Animal> GetAllAnimals()

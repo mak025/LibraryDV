@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,14 +18,18 @@ namespace ConsoleAppTest
         static void Main(string[] args)
         {
 
-            // Test creating a BlogPost
-            IBlogPostRepo BlogPostRepo = new BlogPostRepo();
-            BlogPostService blogPostService = new BlogPostService(BlogPostRepo);
+            IUserRepo userRepo = new UserRepo();
+            UserServices userService = new UserServices(userRepo);
+            //repo.EditAnimal(1, "NEWNAME", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
+            //Console.WriteLine(repo.GetAnimal(1).Name);
 
-            blogPostService.CreateBlogPost("Test Title", "imgpath", "Test content");
-            Console.WriteLine("Blog post 1 created.");
-            blogPostService.CreateBlogPost("Test Title 2", "imgpath", "Test content 2");
-            Console.WriteLine("Blog post 2 created.");
+
+            animalService.CreateDog("123123", "BULLER 2.0", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
+            animalService.CreateDog("123123", "BULLER 2.0", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
+
+            userService.CreateAdmin("Bob", "19191919", "bobmail@hejsa.dk", "bobskode123");
+            userService.CreateAdmin("Bob", "19191919", "bobmail@hejsa.dk", "bobskode123");
+
 
             //// Ensure there is at least one animal to test with
             //Animal animal = repo.GetAnimal(1);
