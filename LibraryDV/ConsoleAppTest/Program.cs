@@ -20,13 +20,17 @@ namespace ConsoleAppTest
             IAnimalRepo repo = new AnimalRepo();
             AnimalService animalService = new AnimalService(repo);
 
+            IUserRepo userRepo = new UserRepo();
+            UserServices userService = new UserServices(userRepo);
             //repo.EditAnimal(1, "NEWNAME", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
             //Console.WriteLine(repo.GetAnimal(1).Name);
-            
+
 
             animalService.CreateDog("123123", "BULLER 2.0", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
             animalService.CreateDog("123123", "BULLER 2.0", "NEWCOLOR", "NEWRACE", new string[] { "NEWVACCINE" }, new DateOnly(2020, 1, 1), 20.0, "NEWDESCRIPTION", 'M', "NEWIMGPATH");
 
+            userService.CreateAdmin("Bob", "19191919", "bobmail@hejsa.dk", "bobskode123");
+            userService.CreateAdmin("Bob", "19191919", "bobmail@hejsa.dk", "bobskode123");
 
 
             //// Ensure there is at least one animal to test with
