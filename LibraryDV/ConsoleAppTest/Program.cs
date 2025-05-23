@@ -102,15 +102,7 @@ namespace ConsoleAppTest
             IBookingRepo bi = new BookingRepo();
             BookingService _bs = new BookingService(bi);
 
-            _bs.CreateBooking(1, 1, DateOnly.FromDateTime(DateTime.Now), 12, "test for delete");
-            Console.WriteLine("oprettet");
             
-            foreach (Booking b in _bs.GetAllBookings())
-            {
-                Console.WriteLine(b.BookingID + " " + b.Comment);
-                Console.WriteLine();
-            }
-            Console.ReadKey();
         }
     }
 }
