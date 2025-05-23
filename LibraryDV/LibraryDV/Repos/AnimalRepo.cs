@@ -172,8 +172,7 @@ namespace LibraryDV.Repos
 
         public List<Animal> SortAnimalsByWeight()
         {
-            List<Animal> animalsToSort = new List<Animal>();
-            animalsToSort = _animals;
+            List<Animal> animalsToSort = GetAllAnimals();
 
             for (int i = 1;  i < animalsToSort.Count; i++)
             {
