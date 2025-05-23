@@ -21,10 +21,7 @@ namespace ConsoleAppTest
             IBlogPostRepo BlogPostRepo = new BlogPostRepo();
             BlogPostService blogPostService = new BlogPostService(BlogPostRepo);
 
-            blogPostService.CreateBlogPost("Test Title 1", "ImgPath", "Test Content");
-            Console.WriteLine("Test Blogpost Created #1");
-            blogPostService.CreateBlogPost("Test Title 2", "ImgPath", "Test Content");
-            Console.WriteLine("Test Blogpost Created #2");
+            
 
 
             //// Ensure there is at least one animal to test with
