@@ -166,6 +166,32 @@ namespace LibraryDV.Repos
                 SaveToJson();
             }
         }
+        public User AuthenticateUser(string email, string password)
+        {
+            IEnumerable<User> allUsers = GetAllUsers();
+            foreach (User user in allUsers)
+            {
+                if ((user.Type == User.UserType.Employee || user.Type == User.UserType.Admin) && user.Email == email)
+                {
+                    if (user is Employee employee)
+                    {
+                        if (employee.Password == password)
+                        {
+                            return employee;
+                        }
+                    }
+                    else if (user is Admin admin)
+                    {
+                        if (admin.Password == password)
+                        {
+                            return admin;
+                        }
+                    }
+                }
+            }
+            return null;
+            /// If no matching user is found, return null
+        }
     }
 }
 

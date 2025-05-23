@@ -154,6 +154,11 @@ namespace LibraryDV.Services
         {
             _userInterface.GetUserDetails(id);
         }
+
+        public User AuthenticateUser(string email, string password)
+        {
+            return _userInterface.AuthenticateUser(email, password);
+        }
     }
 }
 /// Magnus Hansen

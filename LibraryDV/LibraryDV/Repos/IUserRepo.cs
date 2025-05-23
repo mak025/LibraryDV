@@ -54,6 +54,8 @@ namespace LibraryDV.Repos
         /// </summary>
         /// <param name="id">The unique user ID.</param>
         void GetUserDetails(int id);
+
+        User AuthenticateUser(string email, string password);
     }
 }
 /// /Magnus Hansen
