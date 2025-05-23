@@ -12,6 +12,8 @@ namespace LibraryDV.Repos
         //create a new booking object and add it to the list of bookings
         public void CreateBooking(Booking booking);
 
+        public void DeleteBooking(int bookingID);
+
         //find a specific booking
         public Booking GetBooking(int id);
 

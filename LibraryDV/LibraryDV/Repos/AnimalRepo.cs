@@ -17,7 +17,7 @@ namespace LibraryDV.Repos
     public class AnimalRepo : IAnimalRepo
     {
         private List<Animal> _animals = new List<Animal>();
-        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\animals.json";
+        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\pets.json";
 
         public AnimalRepo()
         {   
