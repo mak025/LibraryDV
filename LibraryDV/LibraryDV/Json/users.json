@@ -14,5 +14,13 @@
     "UserID": 2,
     "PhoneNumber": "19191919",
     "Email": "bobmail@hejsa.dk"
+  },
+  {
+    "Password": "TestEmployee",
+    "Type": 1,
+    "Name": "Emily",
+    "UserID": 3,
+    "PhoneNumber": "18181818",
+    "Email": "emily@example.com"
   }
 ]
