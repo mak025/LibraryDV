@@ -21,6 +21,11 @@ namespace LibraryDV.Services
             _bookingInterface.CreateBooking(new Booking(userID, animalID, date, hour, comment));
         }
 
+        public void DeleteBooking(int bookingID)
+        {
+            _bookingInterface.DeleteBooking(bookingID);
+        }
+
         public Booking GetBooking(int id)
         {
             return _bookingInterface.GetBooking(id);

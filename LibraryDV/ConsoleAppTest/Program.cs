@@ -9,6 +9,7 @@ using LibraryDV.Repos;
 using LibraryDV.Services;
 using static LibraryDV.Models.User;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ConsoleAppTest
 {
@@ -17,7 +18,7 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-
+            Test();
             IBlogPostRepo BlogPostRepo = new BlogPostRepo();
             BlogPostService blogPostService = new BlogPostService(BlogPostRepo);
 
@@ -100,7 +101,16 @@ namespace ConsoleAppTest
         {
             IBookingRepo bi = new BookingRepo();
             BookingService _bs = new BookingService(bi);
+
+            _bs.CreateBooking(1, 1, DateOnly.FromDateTime(DateTime.Now), 12, "test for delete");
+            Console.WriteLine("oprettet");
             
+            foreach (Booking b in _bs.GetAllBookings())
+            {
+                Console.WriteLine(b.BookingID + " " + b.Comment);
+                Console.WriteLine();
+            }
+            Console.ReadKey();
         }
     }
 }
