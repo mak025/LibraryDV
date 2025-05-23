@@ -173,8 +173,9 @@ namespace LibraryDV.Repos
         public List<Animal> SortAnimalsByWeight()
         {
             List<Animal> animalsToSort = new List<Animal>();
+            animalsToSort = _animals;
 
-            for (int i = 1;  i < _animals.Count; i++)
+            for (int i = 1;  i < animalsToSort.Count; i++)
             {
                 double currentWeight = animalsToSort[i].Weight;
                 int j = i - 1;
