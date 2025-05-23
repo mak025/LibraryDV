@@ -1,6 +1,7 @@
 [
   {
     "ActivityID": 1,
+    "Date": "2025-06-02",
     "ActivityTitle": "Hundebadetur",
     "Text": "Vi skal ud og bade for satan",
     "ImgPath": "imgpath",
@@ -9,6 +10,7 @@
   },
   {
     "ActivityID": 2,
+    "Date": "2025-06-11",
     "ActivityTitle": "Hundebadetur",
     "Text": "Vi skal ud og bade for satan",
     "ImgPath": "imgpath",
@@ -17,6 +19,7 @@
   },
   {
     "ActivityID": 3,
+    "Date": "2025-06-25",
     "ActivityTitle": "Hundebadetur",
     "Text": "Vi skal ud og bade for satan",
     "ImgPath": "imgpath",
@@ -25,6 +28,7 @@
   },
   {
     "ActivityID": 4,
+    "Date": "2025-06-18",
     "ActivityTitle": "Hundebadetur",
     "Text": "Vi skal ud og bade for satan",
     "ImgPath": "imgpath",
@@ -32,27 +36,12 @@
     "EndHour": 12
   },
   {
-    "ActivityID": 1,
-    "ActivityTitle": "Test",
-    "Text": "testtest",
+    "ActivityID": 5,
+    "Date": "2025-07-15",
+    "ActivityTitle": "Happy Bday!",
+    "Text": "asdfggfgjukuyter ethtyjty egrj wjnwjigiewbug wieubwieu wieu wieuweui",
     "ImgPath": "nope",
-    "StartHour": 12,
-    "EndHour": 19
-  },
-  {
-    "ActivityID": 1,
-    "ActivityTitle": "Test",
-    "Text": "testtest",
-    "ImgPath": "nope",
-    "StartHour": 12,
-    "EndHour": 19
-  },
-  {
-    "ActivityID": 2,
-    "ActivityTitle": "TestINIT",
-    "Text": "INITA",
-    "ImgPath": "VALUE",
-    "StartHour": 2,
-    "EndHour": 5
+    "StartHour": 1,
+    "EndHour": 23
   }
 ]
