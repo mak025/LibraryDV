@@ -17,10 +17,10 @@ namespace LibraryDV.Repos
     public class AnimalRepo : IAnimalRepo
     {
         private List<Animal> _animals = new List<Animal>();
-        private readonly string jsonFilePath;
-        public AnimalRepo(string jsonFilePath)
-        {
-            this.jsonFilePath = jsonFilePath;
+        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\animals.json";
+
+        public AnimalRepo()
+        {   
             LoadFromJson();
         }
         public void SaveToJson()
@@ -105,8 +105,8 @@ namespace LibraryDV.Repos
     double newWeight,
     string newDescription,
     char newGender,
-    string newImgPath,
-    List<string> newHealthLogs)
+    string newImgPath
+    /*List<string> newHealthLogs*/)
         {
             Animal old = GetAnimal(oldID);
             old.Name = newName;
@@ -118,10 +118,42 @@ namespace LibraryDV.Repos
             old.Description = newDescription;
             old.Gender = newGender;
             old.ImgPath = newImgPath;
-            old.HealthLogs = newHealthLogs;
+            //old.HealthLogs = newHealthLogs;
+            SaveToJson();
         }
         
-            
+        public void AddToHealthLog(int animalID, string toAdd)
+        {
+            Animal animal = GetAnimal(animalID);
+            animal.HealthLogs.Add(DateTime.Now, toAdd);
+            SaveToJson();
+        }
+        public void RemoveHealthLogEntry(int animalID, DateTime logDate)
+        {
+            Animal animal = GetAnimal(animalID);
+            if (animal != null && animal.HealthLogs.ContainsKey(logDate))
+            {
+                animal.HealthLogs.Remove(logDate);
+                SaveToJson();
+            }
+        }
+
+        public void EditHealthLogEntry(int animalID, DateTime logDate, string newDescription)
+        {
+            Animal animal = GetAnimal(animalID);
+            if (animal != null && animal.HealthLogs.ContainsKey(logDate))
+            {
+                animal.HealthLogs[logDate] = newDescription;
+                SaveToJson();
+            }
+        }
+
+
+        public Dictionary<DateTime, string> GetHealthLog(int animalID)
+        {
+            Animal animal = GetAnimal(animalID);
+            return animal.HealthLogs;
+        }
 
         public List<Animal> FilterAnimalsByType(string type)
         {
@@ -138,7 +170,7 @@ namespace LibraryDV.Repos
             return _filteredAnimals;
         }
 
-        public List<Animal> SortAnimalsByWeight(double weight)
+        public List<Animal> SortAnimalsByWeight()
         {
             List<Animal> animalsToSort = GetAllAnimals();
 

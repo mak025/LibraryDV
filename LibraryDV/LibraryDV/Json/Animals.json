@@ -1,182 +1,46 @@
 [
   {
-    "ChipNumber": 123456789,
-    "Name": "Buller",
+    "ChipNumber": "123456789",
+    "Name": "NEWNAME",
     "AnimalID": 1,
     "Type": 0,
-    "Color": "gr\u00F8n",
-    "Race": "labrador",
+    "Color": "NEWCOLOR",
+    "Race": "NEWRACE",
     "Vaccines": [
-      "venlig",
-      "legende"
+      "NEWVACCINE"
     ],
-    "Birthday": "2020-05-19",
-    "Weight": 10,
-    "Description": "han er s\u00F8d",
+    "Birthday": "2020-01-01",
+    "Weight": 20,
+    "Description": "NEWDESCRIPTION",
     "Gender": "M",
-    "ImgPath": "imgpath",
-    "HealthLogs": []
+    "ImgPath": "NEWIMGPATH",
+    "HealthLogs": {
+      "2024-05-10T14:30:00": "Updated checkup",
+      "2025-05-21T14:34:30.9757396+02:00": "Initial checkup",
+      "2025-05-21T14:37:53.4951661+02:00": "Initial checkup",
+      "2025-05-21T14:38:06.5531148+02:00": "Initial checkup",
+      "2025-05-21T14:38:25.4526933+02:00": "Initial checkup",
+      "2025-05-21T14:38:41.1280259+02:00": "Initial checkup - pre edit",
+      "2025-05-21T14:39:28.5428681+02:00": "Initial checkup - pre edit",
+      "2025-05-22T10:37:27.7175312+02:00": "Initial checkup - pre edit",
+      "2025-05-22T10:38:55.3403427+02:00": "Initial checkup - pre edit"
+    }
   },
   {
-    "ChipNumber": 0,
-    "Name": "Fiddo",
+    "ChipNumber": "123123",
+    "Name": "BULLER 2.0",
     "AnimalID": 2,
     "Type": 0,
-    "Color": "sort",
-    "Race": "labrador",
+    "Color": "NEWCOLOR",
+    "Race": "NEWRACE",
     "Vaccines": [
-      "vaccine1",
-      "vaccine2"
+      "NEWVACCINE"
     ],
-    "Birthday": "2025-05-19",
-    "Weight": 32,
-    "Description": "Dog_DESC",
+    "Birthday": "2020-01-01",
+    "Weight": 20,
+    "Description": "NEWDESCRIPTION",
     "Gender": "M",
-    "ImgPath": "path/to/image",
-    "HealthLogs": null
-  },
-  {
-    "ChipNumber": 0,
-    "Name": "Fiddo",
-    "AnimalID": 3,
-    "Type": 0,
-    "Color": "sort",
-    "Race": "labrador",
-    "Vaccines": [
-      "vaccine1",
-      "vaccine2"
-    ],
-    "Birthday": "2025-05-19",
-    "Weight": 32,
-    "Description": "Dog_DESC",
-    "Gender": "M",
-    "ImgPath": "path/to/image",
-    "HealthLogs": null
-  },
-  {
-    "ChipNumber": 0,
-    "Name": "Misse",
-    "AnimalID": 4,
-    "Type": 1,
-    "Color": "white",
-    "Race": "persian",
-    "Vaccines": [
-      "vaccine1",
-      "vaccine2"
-    ],
-    "Birthday": "2025-05-19",
-    "Weight": 12,
-    "Description": "Cat_DESC",
-    "Gender": "F",
-    "ImgPath": "path/to/image",
-    "HealthLogs": null
-  },
-  {
-    "ChipNumber": 0,
-    "Name": "Fiddo",
-    "AnimalID": 5,
-    "Type": 0,
-    "Color": "sort",
-    "Race": "labrador",
-    "Vaccines": [
-      "vaccine1",
-      "vaccine2"
-    ],
-    "Birthday": "2025-05-19",
-    "Weight": 32,
-    "Description": "Dog_DESC",
-    "Gender": "M",
-    "ImgPath": "path/to/image",
-    "HealthLogs": null
-  },
-  {
-    "ChipNumber": 0,
-    "Name": "Max",
-    "AnimalID": 6,
-    "Type": 0,
-    "Color": "brun",
-    "Race": "golden retriever",
-    "Vaccines": [
-      "vaccine1",
-      "vaccine2"
-    ],
-    "Birthday": "2025-05-19",
-    "Weight": 32,
-    "Description": "Dog_DESC",
-    "Gender": "M",
-    "ImgPath": "path/to/image",
-    "HealthLogs": null
-  },
-  {
-    "ChipNumber": 0,
-    "Name": "Misse",
-    "AnimalID": 7,
-    "Type": 1,
-    "Color": "langh\u00E5ret",
-    "Race": "perser",
-    "Vaccines": [
-      "vaccine1",
-      "vaccine2"
-    ],
-    "Birthday": "2025-05-19",
-    "Weight": 32,
-    "Description": "Cat_DESC",
-    "Gender": "F",
-    "ImgPath": "path/to/image",
-    "HealthLogs": null
-  },
-  {
-    "ChipNumber": 0,
-    "Name": "Fiddo",
-    "AnimalID": 8,
-    "Type": 0,
-    "Color": "sort",
-    "Race": "labrador",
-    "Vaccines": [
-      "vaccine1",
-      "vaccine2"
-    ],
-    "Birthday": "2025-05-19",
-    "Weight": 32,
-    "Description": "Dog_DESC",
-    "Gender": "M",
-    "ImgPath": "path/to/image",
-    "HealthLogs": null
-  },
-  {
-    "ChipNumber": 0,
-    "Name": "Max",
-    "AnimalID": 9,
-    "Type": 0,
-    "Color": "brun",
-    "Race": "golden retriever",
-    "Vaccines": [
-      "vaccine1",
-      "vaccine2"
-    ],
-    "Birthday": "2025-05-19",
-    "Weight": 32,
-    "Description": "Dog_DESC",
-    "Gender": "M",
-    "ImgPath": "path/to/image",
-    "HealthLogs": null
-  },
-  {
-    "ChipNumber": 0,
-    "Name": "Misse",
-    "AnimalID": 10,
-    "Type": 1,
-    "Color": "langh\u00E5ret",
-    "Race": "perser",
-    "Vaccines": [
-      "vaccine1",
-      "vaccine2"
-    ],
-    "Birthday": "2025-05-19",
-    "Weight": 32,
-    "Description": "Cat_DESC",
-    "Gender": "F",
-    "ImgPath": "path/to/image",
-    "HealthLogs": null
+    "ImgPath": "NEWIMGPATH",
+    "HealthLogs": {}
   }
 ]

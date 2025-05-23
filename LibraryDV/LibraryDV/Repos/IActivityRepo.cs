@@ -25,7 +25,7 @@ namespace LibraryDV.Repos
         /// </summary>
         /// <param name="old">The existing activity.</param>
         /// <param name="newOne">The updated activity details.</param>
-        public void EditActivity(int oldID, string newTitle, string newText, string newImgPath, DateOnly newDate, int newStart, int newEnd);
+        public void EditActivity(int oldID, string newTitle, string newText, string newImgPath, int newStart, int newEnd);
 
         /// <summary>
         /// Deletes an activity.

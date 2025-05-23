@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,47 +8,106 @@ using LibraryDV.Models;
 using LibraryDV.Repos;
 using LibraryDV.Services;
 using static LibraryDV.Models.User;
+using System.Diagnostics;
 
 namespace ConsoleAppTest
 {
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            ActivityRepo _actRepo = new ActivityRepo();
-            ActivityService _actServ = new ActivityService(_actRepo);
 
-            _actServ.CreateActivity("Test", "testtest", "nope", new DateOnly(2025, 12, 12), 12, 19);
+            IBlogPostRepo BlogPostRepo = new BlogPostRepo();
+            BlogPostService blogPostService = new BlogPostService(BlogPostRepo);
 
-            Activity act = _actServ.GetActivity(1);
-            Console.WriteLine(act.ActivityTitle);
-
-            _actServ.EditActivity(1, "Teeeeeeest", "testtest", "nope", new DateOnly(2025, 12, 12), 12, 19);
-            Console.WriteLine(act.ActivityTitle);
+            blogPostService.CreateBlogPost("Test Title 1", "ImgPath", "Test Content");
+            Console.WriteLine("Test Blogpost Created #1");
+            blogPostService.CreateBlogPost("Test Title 2", "ImgPath", "Test Content");
+            Console.WriteLine("Test Blogpost Created #2");
 
 
-            //BlogPost blogPost = new BlogPost("Test Title", "Test Content", "text");
-            DateOnly newDate = new DateOnly(2025, 5, 19);
+            //// Ensure there is at least one animal to test with
+            //Animal animal = repo.GetAnimal(1);
+            //if (animal == null)
+            //{
+            //    Dog newDog = new Dog(
+            //        name: "TestDog",
+            //        color: "Brown",
+            //        race: "Labrador",
+            //        vaccines: new string[] { "Rabies" },
+            //        birthday: new DateOnly(2020, 1, 1),
+            //        weight: 20.0,
+            //        description: "Healthy dog",
+            //        gender: 'M',
+            //        imgPath: "imgpath"
+            //    );
+            //    repo.CreateDog(newDog);
+            //    animal = repo.GetAnimal(newDog.AnimalID);
+            //}
 
-            var animalRepo = new AnimalRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json\animals.json");
-            var animalService = new AnimalService(animalRepo);
+            //int animalID = animal.AnimalID;
 
-            animalService.CreateDog("Fiddo", "sort", "labrador", ["vaccine1", "vaccine2"], newDate, 32, "Dog_DESC", 'M', "path/to/image");
+            //// Add a health log entry
+            //repo.AddToHealthLog(animalID, "Initial checkup - pre edit");
+            //Console.WriteLine("Added health log entry.");
 
-            //// Print all animal names in the _animalRepo list
-            //// Print all animal names in the animals.json file using AnimalRepo
-            foreach (var animal in animalRepo.GetAllAnimals())
-            {
-                Console.WriteLine(animal.Name);
-            }
-            //var repo = new UserRepo();
-            var userRepo = new UserRepo(@"C:\LibraryDV\LibraryDV\LibraryDV\Json\users.json");
-            var userService = new UserServices(userRepo);
+            //// Get and display health logs
+            //var logs = repo.GetHealthLog(animalID);
+            //foreach (var log in logs)
+            //{
+            //    Console.WriteLine($"{log.Key}: {log.Value}");
+            //}
 
-            //Employee employee = new Employee();
-            userService.CreateEmployee("Egil", "22434889", "mail.mail@example.com", "lort");
-            userService.CreateAdmin("AdminUsername", "12974320", "admin@example.com", "adminpass");
-            userService.CreateAdmin("AdminUser2", "49865489", "admin2@example.com", "AdminPass12");
+            //// Edit the first health log entry
+            //if (logs.Count > 0)
+            //{
+            //    var firstLog = new KeyValuePair<DateTime, string>();
+            //    foreach (var log in logs)
+            //    {
+            //        firstLog = log;
+            //        break;
+            //    }
+            //    repo.EditHealthLogEntry(animalID, firstLog.Key, "Updated checkup");
+            //    Console.WriteLine("Edited health log entry.");
+            //}
+
+            ////// Remove the first health log entry
+            ////if (logs.Count > 0)
+            ////{
+            ////    var firstLog = new KeyValuePair<DateTime, string>();
+            ////    foreach (var log in logs)
+            ////    {
+            ////        firstLog = log;
+            ////        break;
+            ////    }
+            ////    repo.RemoveHealthLogEntry(animalID, firstLog.Key);
+            ////    Console.WriteLine("Removed health log entry.");
+            ////}
+
+            //// Display health logs after removal
+            //logs = repo.GetHealthLog(animalID);
+            //Console.WriteLine("Health logs after removal:");
+            //foreach (var log in logs)
+            //{
+            //    Console.WriteLine($"{log.Key}: {log.Value}");
+            //}
+
+
+        }
+
+        public static void Test()
+        {
+            IBookingRepo bi = new BookingRepo();
+            BookingService _bs = new BookingService(bi);
+            DateOnly date = DateOnly.FromDateTime(DateTime.Now);
+
+            _bs.CreateBooking(1, 2, date, 14, "Buller 2.0 ftw");
+            _bs.CreateBooking(4, 2, date, 15, "Buller 2.0 ftw");
+            _bs.CreateBooking(3, 2, date, 10, "Buller 2.0 ftw");
+
+            Console.WriteLine("woo pwoop");
+            Console.ReadKey();
         }
     }
 }

@@ -83,7 +83,9 @@ namespace LibraryDV.Models
         /// <summary>
         /// Gets or sets the health logs for the animal.
         /// </summary>
-        public List<string> HealthLogs { get; set; }
+        public Dictionary<DateTime, string> HealthLogs { get; set; } = new();
+
+
         public Animal(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
         {
             Name = name;
@@ -109,10 +111,11 @@ namespace LibraryDV.Models
         /// <summary>
         /// Gets or sets the chip number of the dog.
         /// </summary>
-        public double ChipNumber { get; set; }
-        public Dog(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath) 
+        public string ChipNumber { get; set; }
+        public Dog(string chipNumber, string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath) 
             :base(name, color, race, vaccines, birthday, weight, description, gender, imgPath)
         {
+            ChipNumber = chipNumber;
             Type = AnimalType.Dog; // Set the type to Dog
             // Default constructor
         }
@@ -126,11 +129,12 @@ namespace LibraryDV.Models
         /// <summary>
         /// Gets or sets the chip number of the cat.
         /// </summary>
-        public double ChipNumber { get; set; }
+        public string ChipNumber { get; set; }
 
-        public Cat(string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
+        public Cat(string chipNumber, string name, string color, string race, string[] vaccines, DateOnly birthday, double weight, string description, char gender, string imgPath)
             : base(name, color, race, vaccines, birthday, weight, description, gender, imgPath)
         {
+            ChipNumber = chipNumber;
             Type = AnimalType.Cat; // Set the type to Cat
         }
     }

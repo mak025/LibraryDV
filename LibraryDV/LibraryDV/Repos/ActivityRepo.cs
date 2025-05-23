@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using LibraryDV.Models;
+using LibraryDV.Repos.Converters;
 
 namespace LibraryDV.Repos
 {
@@ -18,6 +20,12 @@ namespace LibraryDV.Repos
         /// List of activities.
         /// </summary>
         private List<Activity> _activities = new List<Activity>();
+        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\Activities.json";
+
+        public ActivityRepo ()
+        {
+            LoadFromJson(); 
+        }
 
         /// <summary>
         /// Creates a new activity and adds it to the list.
@@ -26,6 +34,34 @@ namespace LibraryDV.Repos
         public void CreateActivity(Activity act)
         {
             _activities.Add(act);
+            SaveToJson();
+        }
+
+        public void SaveToJson()
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+            var json = JsonSerializer.Serialize(_activities, options);
+            File.WriteAllText(jsonFilePath, json);
+        }
+
+        public void LoadFromJson()
+        {
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+                var loadedActivities = JsonSerializer.Deserialize<List<Activity>>(json, options);
+                if (loadedActivities != null)
+                {
+                    _activities = loadedActivities;
+                }
+            }
         }
 
         /// <summary>
@@ -33,13 +69,12 @@ namespace LibraryDV.Repos
         /// </summary>
         /// <param name="old">The existing activity.</param>
         /// <param name="newOne">The updated activity details.</param>
-        public void EditActivity(int oldID, string newTitle, string newText, string newImgPath, DateOnly newDate, int newStart, int newEnd)
+        public void EditActivity(int oldID, string newTitle, string newText, string newImgPath, int newStart, int newEnd)
         {
             Activity old = GetActivity(oldID);
             old.ActivityTitle = newTitle;
             old.Text = newText;
             old.ImgPath = newImgPath;
-            old.ActivityDate = newDate;
             old.StartHour = newStart;
             old.EndHour = newEnd;
         }
@@ -50,7 +85,12 @@ namespace LibraryDV.Repos
         /// <param name="activityID">The activity to remove.</param>
         public void DeleteActivity(int activityID)
         {
-            _activities.Remove(_activities.FirstOrDefault(b => b.ActivityID == activityID));
+            var animalToDelete = _activities.FirstOrDefault(b => b.ActivityID == activityID);
+            if (animalToDelete != null)
+            {
+                _activities.Remove(animalToDelete);
+                SaveToJson();
+            }
         }
 
         /// <summary>

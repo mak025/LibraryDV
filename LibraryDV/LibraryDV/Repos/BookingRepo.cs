@@ -2,17 +2,46 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using LibraryDV.Models;
+using System.Diagnostics;
 
 namespace LibraryDV.Repos
 {
-    class BookingRepo
+    public class BookingRepo : IBookingRepo 
     {
         //Lucas Ingvardtsen
         private List<Booking> _bookings = new List<Booking>();
+        private readonly string _jsonFilePath = @"C:/LibraryDV/LibraryDV/LibraryDV/Json/Bookings.json";
 
-        public BookingRepo() { }
+        public BookingRepo() 
+        {
+            LoadFromJson();
+        }
+
+        public void LoadFromJson()
+        {
+            if(File.Exists(_jsonFilePath))
+            {
+                Debug.WriteLine("File Exists!");
+                string json = File.ReadAllText(_jsonFilePath);
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var loadedBookings = JsonSerializer.Deserialize<List<Booking>>(json, options);
+                if(loadedBookings != null)
+                {
+                    _bookings = loadedBookings;
+
+                }
+            }
+        }
+
+        public void SaveToJson()
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(_bookings, options);
+            File.WriteAllText(_jsonFilePath, json);
+        }
 
         //find a specific booking
         public Booking GetBooking(int id)
@@ -30,6 +59,7 @@ namespace LibraryDV.Repos
         public void CreateBooking(Booking booking)
         {
             _bookings.Add(booking);
+            SaveToJson();
         }
 
         //delete an existing booking
@@ -40,6 +70,7 @@ namespace LibraryDV.Repos
             {
                 _bookings.Remove(BookingToDelete);
             }
+            SaveToJson();
         }
 
         

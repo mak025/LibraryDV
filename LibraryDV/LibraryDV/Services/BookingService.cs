@@ -8,7 +8,7 @@ using LibraryDV.Repos;
 
 namespace LibraryDV.Services
 {
-    class BookingService
+    public class BookingService
     {
         private IBookingRepo _bookingInterface;
         
