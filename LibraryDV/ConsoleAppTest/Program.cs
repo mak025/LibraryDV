@@ -21,7 +21,26 @@ namespace ConsoleAppTest
             IBlogPostRepo BlogPostRepo = new BlogPostRepo();
             BlogPostService blogPostService = new BlogPostService(BlogPostRepo);
 
-            
+            IAnimalRepo animalRepo = new AnimalRepo();
+            AnimalService animalService = new AnimalService(animalRepo);
+
+
+
+
+            List<Animal> animals = animalRepo.GetAllAnimals();
+
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine(animal.Name);
+            }
+
+            animals = animalService.FilterAnimalsByType("Cat");
+
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine(animal.Name);
+            }
+
 
 
             //// Ensure there is at least one animal to test with
