@@ -10,7 +10,7 @@ namespace LibraryDV.Models
     {
         ///Egil
 
-        private int _staticID = 1;
+        private static int _staticID = 1;
 
         public int BlogPostID { get; set; }
         /// <summary>
