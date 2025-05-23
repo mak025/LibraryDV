@@ -19,6 +19,10 @@ namespace LibraryDV.Models
         /// </summary>
         public int ActivityID { get; set; }
         /// <summary>
+        /// Date of activity
+        /// </summary>
+        public DateOnly Date { get; set; }
+        /// <summary>
         /// Title of Activity
         /// </summary>
         public string ActivityTitle { get; set; }
@@ -52,18 +56,21 @@ namespace LibraryDV.Models
         /// <param name="date">Date of new Activity</param>
         /// <param name="start">Start hour of new Activity</param>
         /// <param name="end">End hour of new Activity</param>
-        public Activity (string title, string text, string imgPath, int start, int end)
+        public Activity (DateOnly date, string title, string text, string imgPath, int start, int end)
         {
+            ActivityID = _staticID++;
+            Date = date;
             ActivityTitle = title;
             Text = text;
             ImgPath = imgPath;
             StartHour = start;
             EndHour = end;
-            ActivityID = _staticID++;
         }
         public Activity()
         {
             // Parameterless constructor needed for deserialization
+            ActivityID = _staticID++;
+
         }
 
 

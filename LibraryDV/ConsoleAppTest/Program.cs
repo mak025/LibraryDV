@@ -17,7 +17,6 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-
             IBlogPostRepo BlogPostRepo = new BlogPostRepo();
             BlogPostService blogPostService = new BlogPostService(BlogPostRepo);
 
@@ -116,7 +115,22 @@ namespace ConsoleAppTest
         {
             IBookingRepo bi = new BookingRepo();
             BookingService _bs = new BookingService(bi);
+            IActivityRepo actRepo = new ActivityRepo();
+            ActivityService actServ = new ActivityService(actRepo);
+
+            foreach (LibraryDV.Models.Activity act in actServ.GetAllActivities())
+            {
+                Console.WriteLine($"{act.ActivityID}: {act.Date}: {act.ActivityTitle}");
+            }
+            Console.WriteLine("\nCreateTest");
+            actServ.CreateActivity(new DateOnly(2025, 07, 15), "Happy Bday!", "asdfggfgjukuyter ethtyjty egrj wjnwjigiewbug wieubwieu wieu wieuweui", "nope", 1, 23);
+
+            foreach (LibraryDV.Models.Activity act in actServ.GetAllActivities())
+            {
+                Console.WriteLine($"{act.ActivityID}: {act.Date}: {act.ActivityTitle}");
+            }
             
+            Console.ReadKey();
         }
     }
 }

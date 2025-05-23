@@ -54,7 +54,7 @@ namespace LibraryDV.Repos
                 string json = File.ReadAllText(jsonFilePath);
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
-                    PropertyNameCaseInsensitive = true
+                    PropertyNameCaseInsensitive = true,
                 };
                 var loadedActivities = JsonSerializer.Deserialize<List<Activity>>(json, options);
                 if (loadedActivities != null)
@@ -69,14 +69,16 @@ namespace LibraryDV.Repos
         /// </summary>
         /// <param name="old">The existing activity.</param>
         /// <param name="newOne">The updated activity details.</param>
-        public void EditActivity(int oldID, string newTitle, string newText, string newImgPath, int newStart, int newEnd)
+        public void EditActivity(int oldID, DateOnly newDate, string newTitle, string newText, string newImgPath, int newStart, int newEnd)
         {
             Activity old = GetActivity(oldID);
+            old.Date = newDate;
             old.ActivityTitle = newTitle;
             old.Text = newText;
             old.ImgPath = newImgPath;
             old.StartHour = newStart;
             old.EndHour = newEnd;
+            SaveToJson();
         }
 
         /// <summary>
