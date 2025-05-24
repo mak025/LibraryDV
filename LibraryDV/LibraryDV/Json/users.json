@@ -10,7 +10,7 @@
   {
     "Password": "bobskode123",
     "Type": 2,
-    "Name": "Bob",
+    "Name": "Bob-Edited",
     "UserID": 2,
     "PhoneNumber": "19191919",
     "Email": "bobmail@hejsa.dk"
@@ -30,5 +30,13 @@
     "UserID": 4,
     "PhoneNumber": "93951054",
     "Email": "mak025@example.com"
+  },
+  {
+    "Password": "secret",
+    "Type": 1,
+    "Name": "Kenneth",
+    "UserID": 5,
+    "PhoneNumber": "56842359",
+    "Email": "ken@example.com"
   }
 ]
