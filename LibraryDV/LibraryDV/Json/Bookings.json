@@ -46,5 +46,13 @@
     "Hour": 12,
     "BookingID": 6,
     "Comment": ""
+  },
+  {
+    "UserID": 10,
+    "AnimalID": 2,
+    "Date": "2025-05-25",
+    "Hour": 12,
+    "BookingID": 7,
+    "Comment": ""
   }
 ]

@@ -52,7 +52,7 @@
     "Name": "Robert",
     "UserID": 9,
     "PhoneNumber": "68594279",
-    "Email": "rob@example.com"
+    "Email": "robert@example.com"
   },
   {
     "Type": 0,
@@ -68,5 +68,12 @@
     "UserID": 9,
     "PhoneNumber": "88888888",
     "Email": "admin@admin.com"
+  },
+  {
+    "Type": 0,
+    "Name": "tor",
+    "UserID": 10,
+    "PhoneNumber": "78945625",
+    "Email": "tor@example.com"
   }
 ]
