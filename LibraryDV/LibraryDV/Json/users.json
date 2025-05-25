@@ -38,5 +38,13 @@
     "UserID": 5,
     "PhoneNumber": "56842359",
     "Email": "ken@example.com"
+  },
+  {
+    "Password": "Marcus",
+    "Type": 2,
+    "Name": "Marcus",
+    "UserID": 6,
+    "PhoneNumber": "80085666",
+    "Email": "M@rc.us"
   }
 ]

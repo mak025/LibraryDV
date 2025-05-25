@@ -161,7 +161,7 @@ namespace LibraryDV.Repos
 
             foreach (Animal animal in _animals)
             {
-                if(type.Equals(animal.Type))
+                if(type.Equals(animal.Type.ToString()))
                 {
                     _filteredAnimals.Add(animal);
                 }
