@@ -17,7 +17,7 @@ namespace LibraryDV.Repos
     public class AnimalRepo : IAnimalRepo
     {
         private List<Animal> _animals = new List<Animal>();
-        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\pets.json";
+        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\animals.json";
 
         public AnimalRepo()
         {   
@@ -161,7 +161,7 @@ namespace LibraryDV.Repos
 
             foreach (Animal animal in _animals)
             {
-                if(type.Equals(animal.Type.ToString()))
+                if(type.Equals(animal.Type))
                 {
                     _filteredAnimals.Add(animal);
                 }
