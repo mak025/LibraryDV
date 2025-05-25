@@ -30,5 +30,21 @@
     "Hour": 10,
     "BookingID": 4,
     "Comment": "Buller 2.0 ftw"
+  },
+  {
+    "UserID": 9,
+    "AnimalID": 2,
+    "Date": "2025-05-25",
+    "Hour": 15,
+    "BookingID": 5,
+    "Comment": "Ingen Kommentar"
+  },
+  {
+    "UserID": 8,
+    "AnimalID": 2,
+    "Date": "2025-05-25",
+    "Hour": 12,
+    "BookingID": 6,
+    "Comment": ""
   }
 ]

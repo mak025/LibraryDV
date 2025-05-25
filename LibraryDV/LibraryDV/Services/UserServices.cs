@@ -80,13 +80,13 @@ namespace LibraryDV.Services
                 _userInterface.CreateAdmin(new Admin(name, phoneNumber, email, password));
             }
         }
-        public void CreateCustomer(string phoneNumber, string email, string password)
+        public void CreateCustomer(string name, string phoneNumber, string email)
         {
             // Check for duplicates. ToList(); is being called to avoid iterating on the same collection while adding to it
             List<User> allUsers = _userInterface.GetAllUsers().ToList();
 
             bool duplicateExists = false;
-            foreach (Customer user in allUsers)
+            foreach (User user in allUsers)
             {
                 duplicateExists =
                         user.PhoneNumber == phoneNumber || user.Email == email && user is Customer;
@@ -99,7 +99,7 @@ namespace LibraryDV.Services
             else
             {
                 Debug.WriteLine("No duplicate user found, creating new user");
-                _userInterface.CreateCustomer(new Customer(phoneNumber, email, password));
+                _userInterface.CreateCustomer(new Customer(name, phoneNumber, email));
             }
         }
 

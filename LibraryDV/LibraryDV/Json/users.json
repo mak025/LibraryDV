@@ -46,5 +46,19 @@
     "UserID": 6,
     "PhoneNumber": "80085666",
     "Email": "M@rc.us"
+  },
+  {
+    "Type": 0,
+    "Name": "Robert",
+    "UserID": 9,
+    "PhoneNumber": "68594279",
+    "Email": "rob@example.com"
+  },
+  {
+    "Type": 0,
+    "Name": "cus",
+    "UserID": 8,
+    "PhoneNumber": "89456025",
+    "Email": "cus@example.com"
   }
 ]
