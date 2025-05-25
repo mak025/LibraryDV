@@ -87,10 +87,10 @@ namespace LibraryDV.Repos
         /// <param name="activityID">The activity to remove.</param>
         public void DeleteActivity(int activityID)
         {
-            var animalToDelete = _activities.FirstOrDefault(b => b.ActivityID == activityID);
-            if (animalToDelete != null)
+            var activityToDelete = _activities.FirstOrDefault(b => b.ActivityID == activityID);
+            if (activityToDelete != null)
             {
-                _activities.Remove(animalToDelete);
+                _activities.Remove(activityToDelete);
                 SaveToJson();
             }
         }
