@@ -13,7 +13,7 @@ namespace LibraryDV.Repos
     public class BlogPostRepo : IBlogPostRepo
     {
         private List<BlogPost> _blogPosts = new List<BlogPost>();
-        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\BlogPosts.json";
+        private readonly string _jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JSON", "BlogPosts.json");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BlogPostRepo"/> class.
@@ -31,14 +31,14 @@ namespace LibraryDV.Repos
                 WriteIndented = true,
             };
             var json = JsonSerializer.Serialize(_blogPosts, options);
-            File.WriteAllText(jsonFilePath, json);
+            File.WriteAllText(_jsonFilePath, json);
         }
 
         public void LoadFromJson()
         {
-            if (File.Exists(jsonFilePath))
+            if (File.Exists(_jsonFilePath))
             {
-                string json = File.ReadAllText(jsonFilePath);
+                string json = File.ReadAllText(_jsonFilePath);
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true

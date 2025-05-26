@@ -26,7 +26,7 @@ namespace LibraryDV.Repos
         /// <summary>
         /// Path to the JSON file for user data storage.
         /// </summary>
-        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\users.json";
+        private readonly string _jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JSON", "users.json");
 
         public UserRepo()
         {
@@ -38,9 +38,9 @@ namespace LibraryDV.Repos
         /// </summary>
         public void LoadFromJson()
         {
-            if (File.Exists(jsonFilePath))
+            if (File.Exists(_jsonFilePath))
             {
-                string json = File.ReadAllText(jsonFilePath);
+                string json = File.ReadAllText(_jsonFilePath);
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
                     Converters = { new UserJsonConverter() },
@@ -64,7 +64,7 @@ namespace LibraryDV.Repos
                 Converters = { new UserJsonConverter() }
             };
             var json = JsonSerializer.Serialize(_users, options);
-            File.WriteAllText(jsonFilePath, json);
+            File.WriteAllText(_jsonFilePath, json);
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="UserRepo"/> class.

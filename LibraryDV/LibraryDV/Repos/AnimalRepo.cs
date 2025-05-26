@@ -29,7 +29,7 @@ namespace LibraryDV.Repos
         /// <summary>
         /// The file path to the JSON file used for persisting animal data.
         /// </summary>
-        private readonly string _jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\pets.json";
+        private readonly string _jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JSON", "pets.json");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnimalRepo"/> class and loads animal data from the JSON file.

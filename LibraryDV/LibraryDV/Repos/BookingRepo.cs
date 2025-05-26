@@ -13,7 +13,7 @@ namespace LibraryDV.Repos
     {
         //Lucas Ingvardtsen
         private List<Booking> _bookings = new List<Booking>();
-        private readonly string _jsonFilePath = @"C:/LibraryDV/LibraryDV/LibraryDV/Json/Bookings.json";
+        private readonly string _jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JSON", "Bookings.json");
 
         public BookingRepo() 
         {

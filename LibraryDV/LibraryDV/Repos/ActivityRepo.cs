@@ -24,8 +24,8 @@ namespace LibraryDV.Repos
         /// <summary>
         /// Path to the JSON file where activities are stored.
         /// </summary>
-        private readonly string _jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\Activities.json";
-        
+        private readonly string _jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JSON", "Activities.json");
+
         public ActivityRepo ()
         {
             LoadFromJson(); 
