@@ -20,8 +20,12 @@ namespace LibraryDV.Repos
         /// List of activities.
         /// </summary>
         private List<Activity> _activities = new List<Activity>();
-        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\Activities.json";
 
+        /// <summary>
+        /// Path to the JSON file where activities are stored.
+        /// </summary>
+        private readonly string _jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\Activities.json";
+        
         public ActivityRepo ()
         {
             LoadFromJson(); 
@@ -37,6 +41,9 @@ namespace LibraryDV.Repos
             SaveToJson();
         }
 
+        /// <summary>
+        /// Saves the list of activities to a JSON file.
+        /// </summary>
         public void SaveToJson()
         {
             var options = new JsonSerializerOptions
@@ -44,14 +51,17 @@ namespace LibraryDV.Repos
                 WriteIndented = true,
             };
             var json = JsonSerializer.Serialize(_activities, options);
-            File.WriteAllText(jsonFilePath, json);
+            File.WriteAllText(_jsonFilePath, json);
         }
 
+        /// <summary>
+        /// Loads activities from a JSON file into the list.
+        /// </summary>
         public void LoadFromJson()
         {
-            if (File.Exists(jsonFilePath))
+            if (File.Exists(_jsonFilePath))
             {
-                string json = File.ReadAllText(jsonFilePath);
+                string json = File.ReadAllText(_jsonFilePath);
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true,
@@ -65,7 +75,7 @@ namespace LibraryDV.Repos
         }
 
         /// <summary>
-        /// Edits an existing activity.
+        /// Edits an existing activity by changing all its properties to the new values provided.
         /// </summary>
         /// <param name="old">The existing activity.</param>
         /// <param name="newOne">The updated activity details.</param>

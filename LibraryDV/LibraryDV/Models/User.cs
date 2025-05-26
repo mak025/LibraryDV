@@ -12,9 +12,13 @@ namespace LibraryDV.Models
     /// </summary>
     public abstract class User
     {
-        private static int _staticID = 1; // Static ID for unique user identification
         /// <summary>
-        /// Specifies the type of user.
+        /// Static variable to keep track of the next unique user ID.
+        /// </summary>
+        private static int _staticID = 1; // Static ID for unique user identification
+
+        /// <summary>
+        /// enum UserType is only used in UserJsonConverter.cs for deserialization purposes.
         /// </summary>
         public enum UserType
         {

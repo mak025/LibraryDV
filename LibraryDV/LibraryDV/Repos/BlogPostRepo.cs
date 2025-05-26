@@ -5,6 +5,8 @@ using LibraryDV.Models;
 
 namespace LibraryDV.Repos
 {
+    // Marcus, Magnus, Lucas & Egil
+
     /// <summary>
     /// Repository class for managing blog posts.
     /// </summary>

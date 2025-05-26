@@ -14,34 +14,64 @@ using LibraryDV.Repos.Converters;
 
 namespace LibraryDV.Repos
 {
+
+    //Egil, Marcus, Magnus & Lucas
+    /// <summary>
+    /// Repository for managing animal data, including dogs and cats.
+    /// </summary>
     public class AnimalRepo : IAnimalRepo
     {
-        private List<Animal> _animals = new List<Animal>();
-        private readonly string jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\pets.json";
 
+        /// <summary>
+        /// List of all animals managed by the repository.
+        /// </summary>
+        private List<Animal> _animals = new List<Animal>();
+        /// <summary>
+        /// The file path to the JSON file used for persisting animal data.
+        /// </summary>
+        private readonly string _jsonFilePath = @"C:\LibraryDV\LibraryDV\LibraryDV\Json\pets.json";
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AnimalRepo"/> class and loads animal data from the JSON file.
+        /// </summary>
         public AnimalRepo()
-        {   
+        {
             LoadFromJson();
         }
+
+        /// <summary>
+        /// Saves the current list of animals to the JSON file.
+        /// Exception Handler tries to serialize the list of animals to JSON and write it to the file, if an error occurs, the catch will type a message in the debug window.
+        /// </summary>
         public void SaveToJson()
         {
-            var options = new JsonSerializerOptions
+            try
             {
-                WriteIndented = true,
-                Converters = { new AnimalJsonConverter() }
-            };
-            var json = JsonSerializer.Serialize(_animals, options);
-            File.WriteAllText(jsonFilePath, json);
+                var options = new JsonSerializerOptions
+                {
+                    WriteIndented = true,
+                    Converters = { new AnimalJsonConverter() }
+                };
+                var json = JsonSerializer.Serialize(_animals, options);
+                File.WriteAllText(_jsonFilePath, json);
+            }
+            catch
+            {
+                Debug.WriteLine("Error saving to JSON file. Please check the file path and permissions.");
+            }
         }
 
+        /// <summary>
+        /// Loads the list of animals from the JSON file, if it exists.
+        /// </summary>
         public void LoadFromJson()
         {
-            if (File.Exists(jsonFilePath))
+            if (File.Exists(_jsonFilePath))
             {
-                string json = File.ReadAllText(jsonFilePath);
+                string json = File.ReadAllText(_jsonFilePath);
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
-                    Converters = { new AnimalJsonConverter() }, // You need to implement this
+                    Converters = { new AnimalJsonConverter() },
                     PropertyNameCaseInsensitive = true
                 };
                 var loadedAnimals = JsonSerializer.Deserialize<List<Animal>>(json, options);
@@ -105,8 +135,7 @@ namespace LibraryDV.Repos
     double newWeight,
     string newDescription,
     char newGender,
-    string newImgPath
-    /*List<string> newHealthLogs*/)
+    string newImgPath)
         {
             Animal old = GetAnimal(oldID);
             old.Name = newName;
@@ -118,16 +147,24 @@ namespace LibraryDV.Repos
             old.Description = newDescription;
             old.Gender = newGender;
             old.ImgPath = newImgPath;
-            //old.HealthLogs = newHealthLogs;
             SaveToJson();
         }
         
+        /// Adds a new health log entry for the specified animal.
+        /// </summary>
+        /// <param name="animalID">The unique identifier of the animal.</param>
+        /// <param name="toAdd">The health log description to add.</param>
         public void AddToHealthLog(int animalID, string toAdd)
         {
             Animal animal = GetAnimal(animalID);
             animal.HealthLogs.Add(DateTime.Now, toAdd);
             SaveToJson();
         }
+        /// <summary>
+        /// Removes a health log entry using the dictionary key (log date) for a specific animal by its ID.
+        /// </summary>
+        /// <param name="animalID">The unique identifier of the animal.</param>
+        /// <param name="logDate">The date of the health log entry to remove.</param>
         public void RemoveHealthLogEntry(int animalID, DateTime logDate)
         {
             Animal animal = GetAnimal(animalID);
@@ -138,6 +175,12 @@ namespace LibraryDV.Repos
             }
         }
 
+        /// <summary>
+        /// Edits an existing health log entry for a specific animal by its ID and healthlog dictionary key log date.
+        /// </summary>
+        /// <param name="animalID">The constructor id for the animal</param>
+        /// <param name="logDate">the date of the log</param>
+        /// <param name="newDescription">log description</param>
         public void EditHealthLogEntry(int animalID, DateTime logDate, string newDescription)
         {
             Animal animal = GetAnimal(animalID);
@@ -148,13 +191,22 @@ namespace LibraryDV.Repos
             }
         }
 
-
+        /// <summary>
+        /// Retrieves the health log for a specific animal by its ID.
+        /// </summary>
+        /// <param name="animalID">the id of the animal</param>
+        /// <returns></returns>
         public Dictionary<DateTime, string> GetHealthLog(int animalID)
         {
             Animal animal = GetAnimal(animalID);
             return animal.HealthLogs;
         }
 
+        /// <summary>
+        /// Filters out animals that are not of the given type (Dog or Cat).
+        /// </summary>
+        /// <param name="type">the string which determines what type to filter for</param>
+        /// <returns>A list which only contains animals with a type matching the input</returns>
         public List<Animal> FilterAnimalsByType(string type)
         {
             List<Animal> _filteredAnimals = new List<Animal>();
@@ -170,6 +222,10 @@ namespace LibraryDV.Repos
             return _filteredAnimals;
         }
 
+        /// <summary>
+        /// Sorts all animals by their weight using insertion sort algorithm.
+        /// </summary>
+        /// <returns>A list of animals sorted from lightest to heaviest</returns>
         public List<Animal> SortAnimalsByWeight()
         {
             List<Animal> animalsToSort = GetAllAnimals();

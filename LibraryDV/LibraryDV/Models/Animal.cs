@@ -22,6 +22,9 @@ namespace LibraryDV.Models
         /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// enum AnimalType is only used in AnimalJsonConverter.cs for deserialization purposes.
+        /// </summary>
         public enum AnimalType
         {
             /// <summary>
@@ -81,7 +84,7 @@ namespace LibraryDV.Models
         public string ImgPath { get; set; }
 
         /// <summary>
-        /// Gets or sets the health logs for the animal.
+        /// Dictionary to hold health logs for the animal, with date as key and log description as value.
         /// </summary>
         public Dictionary<DateTime, string> HealthLogs { get; set; } = new();
 

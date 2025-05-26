@@ -27,7 +27,7 @@ namespace LibraryDV.Repos.Converters
                 {
                     throw new JsonException("Missing Type Indicator"); // Throw error if "Type" is missing
                 }
-                //Debug.WriteLine("debugging typeProperty" + typeProperty.GetType()+":"+typeProperty.ToString());
+
                 int typeIndicator = typeProperty.GetInt32(); // Get the value of the "Type" property as a string
                 User user = null; // This will hold the created User object
 

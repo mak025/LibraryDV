@@ -12,7 +12,7 @@ namespace LibraryDV.Repos.Converters
 {
     internal class AnimalJsonConverter : JsonConverter<Animal>
     {
-        // This method reads JSON and creates the correct Animal object (Customer, Employee, or Admin)
+        // This method reads pets.JSON and creates the correct Animal object (Dog, Cat)
         public override Animal Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             // Parse the JSON data into a JsonDocument for easier access
@@ -25,7 +25,7 @@ namespace LibraryDV.Repos.Converters
                 {
                     throw new JsonException("Missing Type Indicator"); // Throw error if "Type" is missing
                 }
-                //Debug.WriteLine("debugging typeProperty" + typeProperty.GetType()+":"+typeProperty.ToString());
+
                 int typeIndicator = typeProperty.GetInt32(); // Get the value of the "Type" property as a string
                 Animal animal = null; // This will hold the created Animal object
 
