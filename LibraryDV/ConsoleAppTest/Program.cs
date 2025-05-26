@@ -17,6 +17,8 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
+            Test();
+
             IBlogPostRepo BlogPostRepo = new BlogPostRepo();
             BlogPostService blogPostService = new BlogPostService(BlogPostRepo);
 
@@ -113,23 +115,21 @@ namespace ConsoleAppTest
 
         public static void Test()
         {
+            IAnimalRepo animalRepo = new AnimalRepo();
+            AnimalService animalService = new AnimalService(animalRepo);
             IBookingRepo bi = new BookingRepo();
             BookingService _bs = new BookingService(bi);
             IActivityRepo actRepo = new ActivityRepo();
             ActivityService actServ = new ActivityService(actRepo);
 
-            foreach (LibraryDV.Models.Activity act in actServ.GetAllActivities())
-            {
-                Console.WriteLine($"{act.ActivityID}: {act.Date}: {act.ActivityTitle}");
-            }
-            Console.WriteLine("\nCreateTest");
-            actServ.CreateActivity(new DateOnly(2025, 07, 15), "Happy Bday!", "asdfggfgjukuyter ethtyjty egrj wjnwjigiewbug wieubwieu wieu wieuweui", "nope", 1, 23);
-
-            foreach (LibraryDV.Models.Activity act in actServ.GetAllActivities())
-            {
-                Console.WriteLine($"{act.ActivityID}: {act.Date}: {act.ActivityTitle}");
-            }
+            animalService.CreateDog("123123123", "JohnJohn", "Alle sammen", "Lapdog", ["rabies", "corona (øl, ikke virus)"], new DateOnly(2024, 2, 3), 32, "Sød hund", 'm', "nope");
+            animalService.CreateCat("321321321", "Ulla", "Alle sammen", "Alien", ["rabies", "corona (øl, ikke virus)"], new DateOnly(2024, 2, 3), 32, "Sød kat", 'f', "nope");
             
+            foreach(Animal a in animalService.GetAllAnimals())
+            {
+                Console.WriteLine(a.Name);
+            }
+
             Console.ReadKey();
         }
     }
