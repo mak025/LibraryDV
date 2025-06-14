@@ -26,7 +26,7 @@ namespace LibraryDV.Repos
         /// <summary>
         /// Path to the JSON file for user data storage.
         /// </summary>
-        private readonly string _jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JSON", "users.json");
+        private readonly string _jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JSON", "usersw.json");
 
         public UserRepo()
         {
@@ -144,7 +144,7 @@ namespace LibraryDV.Repos
             var user = _users.FirstOrDefault(u => u.UserID == id);
             if (user != null)
             {
-                Console.WriteLine($"User Details: {user.Name}, {user.PhoneNumber}, {user.Email}");
+                Console.WriteLine($"User Details: {user.Name}, {user.PhoneNumber}, {user.Email}, {user.Type}");
             }
         }
 

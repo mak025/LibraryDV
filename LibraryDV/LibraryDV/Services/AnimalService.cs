@@ -56,7 +56,7 @@ namespace LibraryDV.Services
             List<Animal> allAnimals = _animalInterface.GetAllAnimals().ToList();
 
             bool duplicateExists = false;
-            foreach (Dog animal in allAnimals)
+            foreach (Cat animal in allAnimals)
             {
                 duplicateExists =
                         animal.ChipNumber == chipNumber &&

@@ -17,120 +17,77 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-            IBlogPostRepo BlogPostRepo = new BlogPostRepo();
-            BlogPostService blogPostService = new BlogPostService(BlogPostRepo);
-
+            // Repo Instances
+            IActivityRepo activityRepo = new ActivityRepo();
             IAnimalRepo animalRepo = new AnimalRepo();
+            IBlogPostRepo blogPostRepo = new BlogPostRepo();
+            IBookingRepo bookingRepo = new BookingRepo();
+            IUserRepo userRepo = new UserRepo();
+
+
+            // Service Instances
+            ActivityService activityService = new ActivityService(activityRepo);
             AnimalService animalService = new AnimalService(animalRepo);
+            BlogPostService blogPostService = new BlogPostService(blogPostRepo);
+            BookingService bookingService = new BookingService(bookingRepo);
+            UserServices userService = new UserServices(userRepo);
+
+
+
+            // Classes showcase - shows how to create objects from classes
+
+            // Creating object from all services to test if they are working correctly by calling the // Create methods of each service.
+            // Create a new activity
+            activityService.CreateActivity(DateOnly.FromDateTime(DateTime.Now), "Test Activity", "This is a test activity.", "test.jpg", 9, 17);
+            // Create a new dog
+            // Create a new blog post
+            blogPostService.CreateBlogPost("BlogPost Title", "", "Content of the blog post");
+            // Create a new booking
+            bookingService.CreateBooking(12, 1, DateOnly.Parse("12-06-2025"), 12, "no comment");
+            // Create a new admin user
+            userService.CreateAdmin("adminName", "29381672", "email@example.com", "ExamplePass12!");
+            userService.CreateCustomer("Adam", "79823429", "adam@example.customer.com");
 
 
 
 
-            List<Animal> animals = animalRepo.GetAllAnimals();
-
-            foreach (Animal animal in animals)
+            // Inheritance showcase. prints the information of all users in the repository.
+            foreach (User user in userRepo.GetAllUsers())
             {
-                Console.WriteLine(animal.Name);
+                Console.WriteLine($"User ID: {user.UserID}, Name: {user.Name}, Type: {user.Type}");
             }
 
-            animals = animalService.FilterAnimalsByType("Cat");
 
-            foreach (Animal animal in animals)
+
+
+
+
+            // Exception handling showcase. Tries to read string from a file which does not exist, which will throw an exception.
+            try
             {
-                Console.WriteLine(animal.Name);
+                string content = System.IO.File.ReadAllText("nonexistentfile.json");
+                Console.WriteLine(content);
             }
-
-
-
-            //// Ensure there is at least one animal to test with
-            //Animal animal = repo.GetAnimal(1);
-            //if (animal == null)
+            catch (System.IO.FileNotFoundException ex)
+            {
+                Console.WriteLine($"File not found: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+            // Uncomment the following lines to see the exception handling in action
+            //Create the file
+            //finally
             //{
-            //    Dog newDog = new Dog(
-            //        name: "TestDog",
-            //        color: "Brown",
-            //        race: "Labrador",
-            //        vaccines: new string[] { "Rabies" },
-            //        birthday: new DateOnly(2020, 1, 1),
-            //        weight: 20.0,
-            //        description: "Healthy dog",
-            //        gender: 'M',
-            //        imgPath: "imgpath"
-            //    );
-            //    repo.CreateDog(newDog);
-            //    animal = repo.GetAnimal(newDog.AnimalID);
-            //}
-
-            //int animalID = animal.AnimalID;
-
-            //// Add a health log entry
-            //repo.AddToHealthLog(animalID, "Initial checkup - pre edit");
-            //Console.WriteLine("Added health log entry.");
-
-            //// Get and display health logs
-            //var logs = repo.GetHealthLog(animalID);
-            //foreach (var log in logs)
-            //{
-            //    Console.WriteLine($"{log.Key}: {log.Value}");
-            //}
-
-            //// Edit the first health log entry
-            //if (logs.Count > 0)
-            //{
-            //    var firstLog = new KeyValuePair<DateTime, string>();
-            //    foreach (var log in logs)
+            //    // Create the file if it does not exist
+            //    string filePath = "nonexistentfile.txt";
+            //    if (!System.IO.File.Exists(filePath))
             //    {
-            //        firstLog = log;
-            //        break;
+            //        System.IO.File.WriteAllText(filePath, "This file was created because it did not exist.");
+            //        Console.WriteLine($"File '{filePath}' has been created.");
             //    }
-            //    repo.EditHealthLogEntry(animalID, firstLog.Key, "Updated checkup");
-            //    Console.WriteLine("Edited health log entry.");
             //}
-
-            ////// Remove the first health log entry
-            ////if (logs.Count > 0)
-            ////{
-            ////    var firstLog = new KeyValuePair<DateTime, string>();
-            ////    foreach (var log in logs)
-            ////    {
-            ////        firstLog = log;
-            ////        break;
-            ////    }
-            ////    repo.RemoveHealthLogEntry(animalID, firstLog.Key);
-            ////    Console.WriteLine("Removed health log entry.");
-            ////}
-
-            //// Display health logs after removal
-            //logs = repo.GetHealthLog(animalID);
-            //Console.WriteLine("Health logs after removal:");
-            //foreach (var log in logs)
-            //{
-            //    Console.WriteLine($"{log.Key}: {log.Value}");
-            //}
-
-
-        }
-
-        public static void Test()
-        {
-            IBookingRepo bi = new BookingRepo();
-            BookingService _bs = new BookingService(bi);
-            IActivityRepo actRepo = new ActivityRepo();
-            ActivityService actServ = new ActivityService(actRepo);
-
-            foreach (LibraryDV.Models.Activity act in actServ.GetAllActivities())
-            {
-                Console.WriteLine($"{act.ActivityID}: {act.Date}: {act.ActivityTitle}");
-            }
-            Console.WriteLine("\nCreateTest");
-            actServ.CreateActivity(new DateOnly(2025, 07, 15), "Happy Bday!", "asdfggfgjukuyter ethtyjty egrj wjnwjigiewbug wieubwieu wieu wieuweui", "nope", 1, 23);
-
-            foreach (LibraryDV.Models.Activity act in actServ.GetAllActivities())
-            {
-                Console.WriteLine($"{act.ActivityID}: {act.Date}: {act.ActivityTitle}");
-            }
-            
-            Console.ReadKey();
         }
     }
 }
